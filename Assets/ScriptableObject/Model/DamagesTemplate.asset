@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c8cf4e3550cfae4784eb330553a84ee, type: 3}
+  m_Name: DamagesTemplate
+  m_EditorClassIdentifier: 
+  _damages:
+  - _interactionCouple:
+      _item: {fileID: 11400000, guid: 940ebd7a924d9b44e9e449279a3e3a43, type: 2}
+      _environment: {fileID: 11400000, guid: fd693cbae64a32c41866514dced09b84, type: 2}
+    _damage:
+      _item: 1.9
+      _environment: 10
+  - _interactionCouple:
+      _item: {fileID: 11400000, guid: 940ebd7a924d9b44e9e449279a3e3a43, type: 2}
+      _environment: {fileID: 11400000, guid: d42f7aeb86eddca4f95c42b21b4da621, type: 2}
+    _damage:
+      _item: 2.2
+      _environment: 7
+  - _interactionCouple:
+      _item: {fileID: 11400000, guid: 940ebd7a924d9b44e9e449279a3e3a43, type: 2}
+      _environment: {fileID: 11400000, guid: 5af18e237a68cac4aacdd853c90f53e9, type: 2}
+    _damage:
+      _item: 0.5
+      _environment: 14
+  - _interactionCouple:
+      _item: {fileID: 11400000, guid: 940ebd7a924d9b44e9e449279a3e3a43, type: 2}
+      _environment: {fileID: 11400000, guid: bb6866f1fa754f14d88872b4b8bd39d0, type: 2}
+    _damage:
+      _item: 0.8
+      _environment: 30
+  - _interactionCouple:
+      _item: {fileID: 11400000, guid: 940ebd7a924d9b44e9e449279a3e3a43, type: 2}
+      _environment: {fileID: 11400000, guid: 9259073ad30993d4a9db40fc8345906c, type: 2}
+    _damage:
+      _item: 0.7
+      _environment: 35
+  - _interactionCouple:
+      _item: {fileID: 11400000, guid: b33b86172561aa04ebcf9597eb708307, type: 2}
+      _environment: {fileID: 11400000, guid: fd693cbae64a32c41866514dced09b84, type: 2}
+    _damage:
+      _item: 1.5
+      _environment: 35
+  - _interactionCouple:
+      _item: {fileID: 11400000, guid: b33b86172561aa04ebcf9597eb708307, type: 2}
+      _environment: {fileID: 11400000, guid: d42f7aeb86eddca4f95c42b21b4da621, type: 2}
+    _damage:
+      _item: 1.8
+      _environment: 25
+  - _interactionCouple:
+      _item: {fileID: 11400000, guid: b33b86172561aa04ebcf9597eb708307, type: 2}
+      _environment: {fileID: 11400000, guid: 5af18e237a68cac4aacdd853c90f53e9, type: 2}
+    _damage:
+      _item: 0.5
+      _environment: 10
+  - _interactionCouple:
+      _item: {fileID: 11400000, guid: b33b86172561aa04ebcf9597eb708307, type: 2}
+      _environment: {fileID: 11400000, guid: bb6866f1fa754f14d88872b4b8bd39d0, type: 2}
+    _damage:
+      _item: 0.7
+      _environment: 50
+  - _interactionCouple:
+      _item: {fileID: 11400000, guid: b33b86172561aa04ebcf9597eb708307, type: 2}
+      _environment: {fileID: 11400000, guid: 9259073ad30993d4a9db40fc8345906c, type: 2}
+    _damage:
+      _item: 0.5
+      _environment: 10
+  - _interactionCouple:
+      _item: {fileID: 11400000, guid: c411b4b321004504bb9b84981bb539a2, type: 2}
+      _environment: {fileID: 11400000, guid: fd693cbae64a32c41866514dced09b84, type: 2}
+    _damage:
+      _item: 2
+      _environment: 5
+  - _interactionCouple:
+      _item: {fileID: 11400000, guid: c411b4b321004504bb9b84981bb539a2, type: 2}
+      _environment: {fileID: 11400000, guid: d42f7aeb86eddca4f95c42b21b4da621, type: 2}
+    _damage:
+      _item: 2.3
+      _environment: 4
+  - _interactionCouple:
+      _item: {fileID: 11400000, guid: c411b4b321004504bb9b84981bb539a2, type: 2}
+      _environment: {fileID: 11400000, guid: 5af18e237a68cac4aacdd853c90f53e9, type: 2}
+    _damage:
+      _item: 0.5
+      _environment: 50
+  - _interactionCouple:
+      _item: {fileID: 11400000, guid: c411b4b321004504bb9b84981bb539a2, type: 2}
+      _environment: {fileID: 11400000, guid: bb6866f1fa754f14d88872b4b8bd39d0, type: 2}
+    _damage:
+      _item: 0.9
+      _environment: 17
+  - _interactionCouple:
+      _item: {fileID: 11400000, guid: c411b4b321004504bb9b84981bb539a2, type: 2}
+      _environment: {fileID: 11400000, guid: 9259073ad30993d4a9db40fc8345906c, type: 2}
+    _damage:
+      _item: 0.9
+      _environment: 15

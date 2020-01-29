@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MessageManager : MonoBehaviour
+public class MessageManager : MonoBehaviour //OLD
 {
   public RectTransform content;
   public RectTransform UIPlayerPanel;
