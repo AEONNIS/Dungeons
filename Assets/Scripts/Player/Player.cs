@@ -18,13 +18,13 @@ namespace Game.Player
 
         private void OnEnable()
         {
-            _mover.PlayerFalls += OnPlayerFell;
+            _mover.PlayerFalls += OnPlayerFalls;
             _mover.PlayerHasLanded += OnPlayerHasLanded;
         }
 
         private void OnDisable()
         {
-            _mover.PlayerFalls -= OnPlayerFell;
+            _mover.PlayerFalls -= OnPlayerFalls;
             _mover.PlayerHasLanded -= OnPlayerHasLanded;
         }
         #endregion
@@ -74,7 +74,7 @@ namespace Game.Player
             }
         }
 
-        private void OnPlayerFell()
+        private void OnPlayerFalls()
         {
             _states.SetFallState();
             _animator.SetAnimatorStates(_states);

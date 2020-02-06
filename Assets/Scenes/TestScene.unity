@@ -13140,7 +13140,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1602458750}
   m_HandleRect: {fileID: 1602458749}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -18349,13 +18349,17 @@ GameObject:
   - component: {fileID: 1050721478}
   - component: {fileID: 1050721477}
   - component: {fileID: 1050721476}
+  - component: {fileID: 1050721481}
+  - component: {fileID: 1050721482}
+  - component: {fileID: 1050721483}
+  - component: {fileID: 1050721484}
   m_Layer: 10
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!70 &1050721476
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -18478,6 +18482,90 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1050721481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050721475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1e3c2231266a10458d4e8ddfb9894c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 1050721482}
+  _up: 273
+  _down: 274
+  _left: 276
+  _right: 275
+  _jump: 32
+  _powerSwitch: 306
+  _inventory: 105
+  _pickUpItems: 112
+  _gameMenu: 27
+--- !u!114 &1050721482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050721475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a101280342eb84fad81c7df8f90377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _base: {fileID: 11400000, guid: 72a5eb861aa052043ab5b5501bdb3d45, type: 2}
+  _mover: {fileID: 1050721483}
+  _animator: {fileID: 1050721484}
+  _states:
+    _rightDirection: 1
+    _isGrounded: 1
+    _isJumping: 0
+    _isHorizontalInput: 0
+    _isHorizontalSpeed: 0
+    _triumphing: 0
+    _died: 0
+    _powerState: 1
+--- !u!114 &1050721483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050721475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75510993f0f899348be06e3b0b0c7705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody2d: {fileID: 1050721477}
+  _groundChecker: {fileID: 1675467424}
+  _deltaTimeFactorForVelocityLerp: 5
+  _playerFalls:
+    m_PersistentCalls:
+      m_Calls: []
+  _playerHasLanded:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1050721484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050721475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f87d21323aa57429c6fd1c23b78246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1050721478}
+  _moveSpeedMultipliers:
+  - 1
+  - 1.8
+  - 3.8
 --- !u!1001 &1054459283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25456,7 +25544,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507978248}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.38, y: 1.2, z: 1}
+  m_LocalPosition: {x: 25.48, y: 0.51, z: 1}
   m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
   m_Children:
   - {fileID: 1888486629}
@@ -25552,7 +25640,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507978248}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7af5974e799a4a54ab63fd2ddd45c071, type: 3}
   m_Name: 
@@ -28708,8 +28796,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1675467422}
   - component: {fileID: 1675467423}
+  - component: {fileID: 1675467424}
   m_Layer: 10
-  m_Name: GroundCheck
+  m_Name: GroundChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28745,6 +28834,22 @@ CapsuleCollider2D:
   m_Offset: {x: -0.065, y: -0.01587762}
   m_Size: {x: 0.7173305, y: 0.71733266}
   m_Direction: 0
+--- !u!114 &1675467424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675467421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06549311b1021d64491007c9cd8f110d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _groundCheckingCollider: {fileID: 1675467423}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1001 &1677106884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31236,7 +31341,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 1888486628}
+  m_Camera: {fileID: 1631279094}
   m_PlaneDistance: 5
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -31752,12 +31857,12 @@ GameObject:
   - component: {fileID: 1888486625}
   - component: {fileID: 1888486630}
   m_Layer: 10
-  m_Name: Main Camera
-  m_TagString: MainCamera
+  m_Name: Camera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1888486625
 AudioListener:
   m_ObjectHideFlags: 0

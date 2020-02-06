@@ -19,7 +19,6 @@ namespace Game.Player
         private int _moveSpeedMultiplierHash;
 
         #region Unity
-
         private void Awake()
         {
             _rightDirectionHash = Animator.StringToHash("RightDirection");
@@ -31,7 +30,6 @@ namespace Game.Player
             _diedHash = Animator.StringToHash("Died");
             _moveSpeedMultiplierHash = Animator.StringToHash("MoveSpeedMultiplier");
         }
-
         #endregion
 
         public void SetAnimatorStates(PlayerStates playerStates)

@@ -6,6 +6,8 @@ namespace Game.Model
     [Serializable]
     public struct PlayerStates
     {
+        private static int _powerStatesLength = Enum.GetNames(typeof(PowerState)).Length;
+
         [SerializeField] private bool _rightDirection;
         [SerializeField] private bool _isGrounded;
         [SerializeField] private bool _isJumping;
@@ -14,8 +16,6 @@ namespace Game.Model
         [SerializeField] private bool _triumphing;
         [SerializeField] private bool _died;
         [SerializeField] private PowerState _powerState;
-
-        private static int _powerStatesLength = Enum.GetNames(typeof(PowerState)).Length;
 
         public bool RightDirection => _rightDirection;
         public bool IsGrounded => _isGrounded;

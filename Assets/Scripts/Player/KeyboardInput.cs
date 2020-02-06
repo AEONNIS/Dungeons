@@ -5,7 +5,7 @@ namespace Game.Player
     public class KeyboardInput : MonoBehaviour
     {
         [SerializeField] private Player _player;
-        [Header("Клавиши управленя:")]
+        [Header("Клавиши управления:")]
         [SerializeField] private KeyCode _up = KeyCode.UpArrow;
         [SerializeField] private KeyCode _down = KeyCode.DownArrow;
         [SerializeField] private KeyCode _left = KeyCode.LeftArrow;
@@ -24,16 +24,16 @@ namespace Game.Player
             if (Input.GetKeyDown(_powerSwitch))
                 _player.SwitchPowerState();
 
-            _horizontalInput = CheckHorizontalInput();
+            _horizontalInput = GetHorizontalInput();
 
             if (Input.GetKey(_jump))
-                PlayerTriesToJump(_horizontalInput);
+                PlayerTryJump(_horizontalInput);
             else
-                PlayerTriesToMove(_horizontalInput);
+                PlayerTryMove(_horizontalInput);
         }
         #endregion
 
-        private HorizontalInput CheckHorizontalInput()
+        private HorizontalInput GetHorizontalInput()
         {
             if (Input.GetKeyDown(_left) && Input.GetKeyDown(_right) == false)
                 return HorizontalInput.Left;
@@ -43,7 +43,7 @@ namespace Game.Player
                 return HorizontalInput.None;
         }
 
-        private void PlayerTriesToJump(HorizontalInput horizontalInput)
+        private void PlayerTryJump(HorizontalInput horizontalInput)
         {
             if (horizontalInput == HorizontalInput.None)
                 _player.TryJump();
@@ -53,7 +53,7 @@ namespace Game.Player
                 _player.TryJumpMove(true);
         }
 
-        private void PlayerTriesToMove(HorizontalInput horizontalInput)
+        private void PlayerTryMove(HorizontalInput horizontalInput)
         {
             if (horizontalInput == HorizontalInput.None)
                 _player.TrySlowdown();

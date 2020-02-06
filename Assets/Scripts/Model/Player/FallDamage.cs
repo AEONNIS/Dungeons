@@ -3,18 +3,21 @@ using UnityEngine;
 
 namespace Game.Model
 {
-    [Serializable]
-    public class FallDamage
+    public partial class PlayerBase : ScriptableObject
     {
-        [SerializeField] private float _minFallingSpeed;
-        [SerializeField] private float _maxFallingSpeed;
-        [SerializeField] private float _damage;
-
-        public float Damage => _damage;
-
-        public bool SpeedInRange(float speed)
+        [Serializable]
+        private class FallDamage
         {
-            return _minFallingSpeed < speed && speed <= _maxFallingSpeed;
+            [SerializeField] private float _minFallingSpeed;
+            [SerializeField] private float _maxFallingSpeed;
+            [SerializeField] private float _damage;
+
+            public float Damage => _damage;
+
+            public bool SpeedInRange(float speed)
+            {
+                return _minFallingSpeed < speed && speed <= _maxFallingSpeed;
+            }
         }
     }
 }

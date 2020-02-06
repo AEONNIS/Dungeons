@@ -11,12 +11,10 @@ namespace Game.Player
         private Collider2D[] _groundResultsColliders = new Collider2D[2];
 
         #region Unity
-
         private void Awake()
         {
             _groundFilter.SetLayerMask(_groundLayer);
         }
-
         #endregion
 
         public bool IsGrounded()
