@@ -39,7 +39,7 @@ public class SlotInInventory : MonoBehaviour, IPointerEnterHandler, IPointerExit
     _imgSelf = GetComponent<Image>();
     _imgSlotForDrag = RT_slotForDrag.GetComponent<Image>();
     _UI_Panel = GameObject.Find("UI Tooltip Panel").GetComponent<UI_Update>();
-    _inventory = GameObject.Find("Player").GetComponent<Inventory>();
+    _inventory = GameObject.Find("PlayerOLD").GetComponent<Inventory>();
   }
 
   public void OnPointerEnter(PointerEventData eventData)

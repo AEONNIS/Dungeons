@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Item", order = 2)]
+[CreateAssetMenu(fileName = "ItemOLD", menuName = "ItemOLD", order = 2)]
 public class ItemOLD : ScriptableObject
 {
   [Tooltip("Идентификатор предмета. Смотри перечисление ItemId.")]

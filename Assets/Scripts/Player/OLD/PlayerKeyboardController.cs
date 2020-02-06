@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerKeyboardController : MonoBehaviour
+public class PlayerKeyboardController : MonoBehaviour //OLD
 {
   // Используемые клавиши.
   [Header("Клавиши управления")]
@@ -14,14 +14,14 @@ public class PlayerKeyboardController : MonoBehaviour
   public KeyCode takeItemsKey = KeyCode.T;
   public KeyCode pauseMenuKey = KeyCode.Escape;
 
-  private Player _player;
+  private PlayerOLD _player;
   private Inventory _inventory;
 
   private float horizontal;
 
   private void Awake()
   {
-    _player = _player == null ? GetComponent<Player>() : _player;
+    _player = _player == null ? GetComponent<PlayerOLD>() : _player;
     if (_player == null)
       Debug.LogError("Скрипт 'Player' не установлен на контроллер");
 

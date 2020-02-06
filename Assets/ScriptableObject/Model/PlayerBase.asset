@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7df91b9a3df16643a5d4d11d8144612, type: 3}
+  m_Name: PlayerBase
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _maxSafeSpeed: 9.614
+  _powerStates:
+  - _state: 0
+    _speed: 100
+    _jumpForce: 220
+  - _state: 1
+    _speed: 180
+    _jumpForce: 345
+  - _state: 2
+    _speed: 380
+    _jumpForce: 435
+  _fallDamages:
+  - _fallingSpeed: 9.61
+    _damage: 0
+    _damageFactor: 0
+  - _fallingSpeed: 10.4
+    _damage: 10
+    _damageFactor: 12.66
+  - _fallingSpeed: 10.99
+    _damage: 25
+    _damageFactor: 25.42
+  - _fallingSpeed: 11.58
+    _damage: 45
+    _damageFactor: 33.9
+  - _fallingSpeed: 12.16
+    _damage: 70
+    _damageFactor: 43.1
+  - _fallingSpeed: 12.75
+    _damage: 100
+    _damageFactor: 50.85

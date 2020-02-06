@@ -56,7 +56,7 @@ public class EnvironmentDisplay : MonoBehaviour
       _rigidbody = GetComponent<Rigidbody2D>();
 
     _selfHighlighting = GetComponent<ColorHighlightingEnvironment>();
-    _inventory = GameObject.Find("Player").GetComponent<Inventory>();
+    _inventory = GameObject.Find("PlayerOLD").GetComponent<Inventory>();
   }
 
   private void Start()

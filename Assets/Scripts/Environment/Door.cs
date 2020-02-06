@@ -24,7 +24,7 @@ public class Door : MonoBehaviour
   private Animator _thisAnimator;
   private Transform _thisTransform;
   private Transform _playerTransform;
-  private Player _player;
+  private PlayerOLD _player;
   private UI_Update _UI_Panel; // Панель в интерфейсе для вывода информации об объекте.
 
   private int _ahClose, _ahOpen;
@@ -53,8 +53,8 @@ public class Door : MonoBehaviour
     _thisRenderer = GetComponent<SpriteRenderer>();
     _thisAnimator = GetComponent<Animator>();
     _thisTransform = GetComponent<Transform>();
-    _playerTransform = GameObject.Find("Player").transform;
-    _player = _playerTransform.GetComponent<Player>();
+    _playerTransform = GameObject.Find("PlayerOLD").transform;
+    _player = _playerTransform.GetComponent<PlayerOLD>();
     _UI_Panel = GameObject.Find("UI Tooltip Panel").GetComponent<UI_Update>();
 
     _ahClose = Animator.StringToHash("Close");

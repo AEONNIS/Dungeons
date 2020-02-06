@@ -33,7 +33,7 @@ public class ColorHighlightingEnvironment : MonoBehaviour
   {
     _renderer = GetComponent<SpriteRenderer>();
     _selfTransform = GetComponent<Transform>();
-    _playerTransform = GameObject.Find("Player").transform;
+    _playerTransform = GameObject.Find("PlayerOLD").transform;
     _UI_Panel = GameObject.Find("UI Tooltip Panel").GetComponent<UI_Update>();
     _environmentDisplay = GetComponent<EnvironmentDisplay>();
   }

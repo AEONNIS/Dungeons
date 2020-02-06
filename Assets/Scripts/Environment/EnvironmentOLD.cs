@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Environment", menuName = "Environment", order = 1)]
+[CreateAssetMenu(fileName = "EnvironmentOLD", menuName = "EnvironmentOLD", order = 1)]
 public class EnvironmentOLD : ScriptableObject
 {
   [Tooltip("Идентификатор тайла. Смотри перечисление EnvironmentId.")]

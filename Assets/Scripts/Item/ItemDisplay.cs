@@ -65,7 +65,7 @@ public class ItemDisplay : MonoBehaviour
     _thisGamObj = gameObject;
     _thisTransform = transform;
     _rigidbody = GetComponent<Rigidbody2D>();
-    _inventory = GameObject.Find("Player").GetComponent<Inventory>();
+    _inventory = GameObject.Find("PlayerOLD").GetComponent<Inventory>();
   }
 
   private void Start()
