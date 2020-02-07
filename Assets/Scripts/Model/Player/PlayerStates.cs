@@ -13,7 +13,7 @@ namespace Game.Model
         [SerializeField] private bool _isJumping;
         [SerializeField] private bool _isHorizontalInput;
         [SerializeField] private bool _isHorizontalSpeed;
-        [SerializeField] private bool _triumphing;
+        [SerializeField] private bool _isFun;
         [SerializeField] private bool _died;
         [SerializeField] private PowerState _powerState;
 
@@ -22,7 +22,7 @@ namespace Game.Model
         public bool IsJumping => _isJumping;
         public bool IsHorizontalInput => _isHorizontalInput;
         public bool IsHorizontalSpeed => _isHorizontalSpeed;
-        public bool Triumphing => _triumphing;
+        public bool IsFun => _isFun;
         public bool Died => _died;
         public PowerState PowerState => _powerState;
 
@@ -33,7 +33,7 @@ namespace Game.Model
             _isJumping = false;
             _isHorizontalInput = false;
             _isHorizontalSpeed = false;
-            _triumphing = false;
+            _isFun = false;
             _died = false;
             _powerState = PowerState.Normal;
         }
@@ -46,13 +46,17 @@ namespace Game.Model
         public void SetMoveState(bool rightDirection)
         {
             _rightDirection = rightDirection;
+            _isGrounded = true;
+            _isJumping = false;
             _isHorizontalInput = true;
             _isHorizontalSpeed = true;
         }
 
-        public void SetStateToSlowdownOrStop(bool isHorizontalInput, bool isHorizontalSpeed)
+        public void SetStateToSlowdownOrIdle(bool isHorizontalSpeed)
         {
-            _isHorizontalInput = isHorizontalInput;
+            _isGrounded = true;
+            _isJumping = false;
+            _isHorizontalInput = false;
             _isHorizontalSpeed = isHorizontalSpeed;
         }
 
@@ -69,7 +73,6 @@ namespace Game.Model
             _isGrounded = false;
             _isJumping = true;
             _isHorizontalInput = true;
-            _isHorizontalSpeed = true;
         }
 
         public void SetFallState()

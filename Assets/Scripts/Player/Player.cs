@@ -14,6 +14,7 @@ namespace Game.Player
         private void Awake()
         {
             _states.SetDefault();
+            _animator.SetAnimatorStates(_states);
         }
 
         private void OnEnable()
@@ -49,7 +50,7 @@ namespace Game.Player
         {
             if (_states.IsGrounded && _states.IsHorizontalSpeed)
             {
-                _states.SetStateToSlowdownOrStop(false, _mover.SlowdownAndCheckHorizontalSpeed());
+                _states.SetStateToSlowdownOrIdle(_mover.SlowdownAndCheckHorizontalSpeed());
                 _animator.SetAnimatorStates(_states);
             }
         }
