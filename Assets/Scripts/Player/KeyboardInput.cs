@@ -19,11 +19,8 @@ namespace Game.Player
         private HorizontalInput _horizontalInput;
 
         #region Unity
-        private void Update()
+        private void FixedUpdate()
         {
-            if (Input.GetKeyDown(_powerSwitch))
-                _player.SwitchPowerState();
-
             _horizontalInput = GetHorizontalInput();
 
             if (Input.GetKey(_jump))
@@ -31,13 +28,20 @@ namespace Game.Player
             else
                 PlayerTryMove(_horizontalInput);
         }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(_powerSwitch))
+                _player.SwitchPowerState();
+
+        }
         #endregion
 
         private HorizontalInput GetHorizontalInput()
         {
-            if (Input.GetKeyDown(_left) && Input.GetKeyDown(_right) == false)
+            if (Input.GetKey(_left) && Input.GetKey(_right) == false)
                 return HorizontalInput.Left;
-            else if (Input.GetKeyDown(_right) && Input.GetKeyDown(_left) == false)
+            else if (Input.GetKey(_right) && Input.GetKey(_left) == false)
                 return HorizontalInput.Right;
             else
                 return HorizontalInput.None;

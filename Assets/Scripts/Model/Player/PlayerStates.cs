@@ -9,33 +9,26 @@ namespace Game.Model
         private static int _powerStatesLength = Enum.GetNames(typeof(PowerState)).Length;
 
         [SerializeField] private bool _rightDirection;
-        [SerializeField] private bool _isGrounded;
-        [SerializeField] private bool _isJumping;
-        [SerializeField] private bool _isHorizontalInput;
-        [SerializeField] private bool _isHorizontalSpeed;
-        [SerializeField] private bool _isFun;
+        [SerializeField] private bool _grounded;
+        [SerializeField] private bool _jumping;
+        [SerializeField] private bool _horizontalInput;
+        [SerializeField] private bool _horizontalSpeed;
+        [SerializeField] private bool _fun;
         [SerializeField] private bool _died;
         [SerializeField] private PowerState _powerState;
 
         public bool RightDirection => _rightDirection;
-        public bool IsGrounded => _isGrounded;
-        public bool IsJumping => _isJumping;
-        public bool IsHorizontalInput => _isHorizontalInput;
-        public bool IsHorizontalSpeed => _isHorizontalSpeed;
-        public bool IsFun => _isFun;
+        public bool Grounded => _grounded;
+        public bool Jumping => _jumping;
+        public bool HorizontalInput => _horizontalInput;
+        public bool HorizontalSpeed => _horizontalSpeed;
+        public bool Fun => _fun;
         public bool Died => _died;
         public PowerState PowerState => _powerState;
 
         public void SetDefault()
         {
-            _rightDirection = true;
-            _isGrounded = true;
-            _isJumping = false;
-            _isHorizontalInput = false;
-            _isHorizontalSpeed = false;
-            _isFun = false;
-            _died = false;
-            _powerState = PowerState.Normal;
+            SetStates(true, true, false, false, false, false, false, PowerState.Normal);
         }
 
         public void SwitchPowerState()
@@ -45,46 +38,60 @@ namespace Game.Model
 
         public void SetMoveState(bool rightDirection)
         {
-            _rightDirection = rightDirection;
-            _isGrounded = true;
-            _isJumping = false;
-            _isHorizontalInput = true;
-            _isHorizontalSpeed = true;
+            SetStates(rightDirection, true, false, true, true, _fun, _died, _powerState);
         }
 
-        public void SetStateToSlowdownOrIdle(bool isHorizontalSpeed)
+        public void SetStateToSlowdownOrIdle(bool horizontalSpeed)
         {
-            _isGrounded = true;
-            _isJumping = false;
-            _isHorizontalInput = false;
-            _isHorizontalSpeed = isHorizontalSpeed;
+            SetStates(_rightDirection, true, false, false, horizontalSpeed, _fun, _died, _powerState);
+        }
+
+        public void SetJumpStartState()
+        {
+            SetStates(_rightDirection, true, true, false, _horizontalSpeed, _fun, _died, _powerState);
         }
 
         public void SetJumpState()
         {
-            _isGrounded = false;
-            _isJumping = true;
-            _isHorizontalInput = false;
+            SetStates(_rightDirection, false, true, false, _horizontalSpeed, _fun, _died, _powerState);
+        }
+
+        public void SetJumpMoveStartState(bool rightDirection)
+        {
+            SetStates(rightDirection, true, true, true, true, _fun, _died, _powerState);
         }
 
         public void SetJumpMoveState(bool rightDirection)
         {
-            _rightDirection = rightDirection;
-            _isGrounded = false;
-            _isJumping = true;
-            _isHorizontalInput = true;
+            SetStates(rightDirection, false, true, true, true, _fun, _died, _powerState);
         }
 
         public void SetFallState()
         {
-            _isGrounded = false;
-            _isJumping = false;
+            SetStates(_rightDirection, false, false, _horizontalInput, _horizontalSpeed, _fun, _died, _powerState);
         }
 
         public void SetLandedState()
         {
-            _isGrounded = true;
-            _isJumping = false;
+            SetStates(_rightDirection, true, false, _horizontalInput, _horizontalSpeed, _fun, _died, _powerState);
+        }
+
+        public void SetDeathState()
+        {
+            _died = true;
+        }
+
+        private void SetStates(bool rightDirection, bool grounded, bool jumping, bool horizontalInput, bool horizontalSpeed,
+                               bool fun, bool died, PowerState powerState)
+        {
+            _rightDirection = rightDirection;
+            _grounded = grounded;
+            _jumping = jumping;
+            _horizontalInput = horizontalInput;
+            _horizontalSpeed = horizontalSpeed;
+            _fun = fun;
+            _died = died;
+            _powerState = powerState;
         }
     }
 

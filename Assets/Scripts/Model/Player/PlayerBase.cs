@@ -7,7 +7,6 @@ namespace Game.Model
     [CreateAssetMenu(fileName = "PlayerBase", menuName = "Model/PlayerBase")]
     public partial class PlayerBase : ScriptableObject
     {
-        [SerializeField] private float _health = 100.0f;
         [SerializeField] private List<PlayerCharacteristics> _characteristicsSet;
         [Header("Parts from TotalForce:")]
         [SerializeField] private float _speedPartsFromTotalForce = 0.34f;
@@ -16,20 +15,12 @@ namespace Game.Model
         [SerializeField] private float _maxSafeFalingSpeed;
         [SerializeField] private List<FallDamage> _fallDamages;
 
-        public float Health => _health;
-
         #region Unity
         private void OnValidate()
         {
             ValidateTotalForceParts();
-            ValidateHealth();
         }
         #endregion
-
-        public bool FallingDamageAndCheckDeath(float impactSpeed)
-        {
-            return ToDamageAndCheckDeath(GetDamageForFallingSpeed(impactSpeed));
-        }
 
         public float GetSpeedForPowerState(PowerState powerState)
         {
@@ -47,6 +38,11 @@ namespace Game.Model
             return new Vector2(_speedPartsFromTotalForce * totalForce, _jumpForcePartsFromTotalForce * totalForce);
         }
 
+        public float GetDamageForFallingSpeed(float impactSpeed)
+        {
+            return impactSpeed <= _maxSafeFalingSpeed ? 0.0f : _fallDamages.First(fallDamage => fallDamage.SpeedInRange(impactSpeed)).Damage;
+        }
+
         private void ValidateTotalForceParts()
         {
             if (_speedPartsFromTotalForce <= 0 || _speedPartsFromTotalForce >= 1)
@@ -55,23 +51,6 @@ namespace Game.Model
                 _jumpForcePartsFromTotalForce = 0.66f;
             if (_speedPartsFromTotalForce + _jumpForcePartsFromTotalForce != 1)
                 _speedPartsFromTotalForce = 1 - _jumpForcePartsFromTotalForce;
-        }
-
-        private void ValidateHealth()
-        {
-            if (0.0f > _health && _health > 100.0f)
-                _health = 100.0f;
-        }
-
-        private float GetDamageForFallingSpeed(float impactSpeed)
-        {
-            return impactSpeed <= _maxSafeFalingSpeed ? 0.0f : _fallDamages.First(fallDamage => fallDamage.SpeedInRange(impactSpeed)).Damage;
-        }
-
-        private bool ToDamageAndCheckDeath(float damageValue)
-        {
-            _health = damageValue < _health ? _health - damageValue : 0.0f;
-            return _health == 0.0f;
         }
 
         private float GetTotalForceValueForPowerState(PowerState powerState)

@@ -25,29 +25,26 @@ MonoBehaviour:
     _jumpForce: 435
   _speedPartsFromTotalForce: 0.33999997
   _jumpForcePartsFromTotalForce: 0.66
-  _maxSafeFalingSpeed: 0
+  _maxSafeFalingSpeed: 9
   _fallDamages:
-  - _minFallingSpeed: 0
-    _maxFallingSpeed: 0
-    _damage: 0
-  - _minFallingSpeed: 0
-    _maxFallingSpeed: 0
+  - _minFallingSpeed: 9
+    _maxFallingSpeed: 9.8
     _damage: 10
-  - _minFallingSpeed: 0
-    _maxFallingSpeed: 0
-    _damage: 25
-  - _minFallingSpeed: 0
-    _maxFallingSpeed: 0
-    _damage: 45
-  - _minFallingSpeed: 0
-    _maxFallingSpeed: 0
+  - _minFallingSpeed: 9.8
+    _maxFallingSpeed: 10.4
+    _damage: 22
+  - _minFallingSpeed: 10.4
+    _maxFallingSpeed: 11
+    _damage: 36
+  - _minFallingSpeed: 11
+    _maxFallingSpeed: 11.6
+    _damage: 52
+  - _minFallingSpeed: 11.6
+    _maxFallingSpeed: 12.2
     _damage: 70
-  - _minFallingSpeed: 0
-    _maxFallingSpeed: 0
-    _damage: 70
-  - _minFallingSpeed: 0
-    _maxFallingSpeed: 0
-    _damage: 70
-  - _minFallingSpeed: 0
-    _maxFallingSpeed: 0
-    _damage: 70
+  - _minFallingSpeed: 12.2
+    _maxFallingSpeed: 12.8
+    _damage: 90
+  - _minFallingSpeed: 12.8
+    _maxFallingSpeed: 1e+10
+    _damage: 100
