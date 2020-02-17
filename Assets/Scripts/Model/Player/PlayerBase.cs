@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Game.Model
+namespace Game.Model.PlayerCharacter
 {
     [CreateAssetMenu(fileName = "PlayerBase", menuName = "Model/PlayerBase")]
     public partial class PlayerBase : ScriptableObject

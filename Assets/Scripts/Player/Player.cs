@@ -1,10 +1,12 @@
-﻿using Game.Model;
+﻿using Game.Model.PlayerCharacter;
+using Game.UI;
 using UnityEngine;
 
-namespace Game.Player
+namespace Game.PlayerCharacter
 {
     public class Player : MonoBehaviour
     {
+        [SerializeField] private float _positionYCorrection = 0.38f;
         [SerializeField] private float _health = 100.0f;
         [SerializeField] private PlayerBase _base;
         [SerializeField] private PlayerMover _mover;
@@ -13,7 +15,10 @@ namespace Game.Player
         [SerializeField] private Timer _timer;
         [Range(0.0f, 0.2f)] [SerializeField] private float _jumpStartTime;
         [SerializeField] private PlayerStates _states = new PlayerStates();
+        [Header("UI:")]
+        [SerializeField] private PlayerPanel _playerPanel;
 
+        public Vector2 Position => new Vector2(transform.position.x, transform.position.y + _positionYCorrection);
         public PlayerBase Base => _base;
         public PlayerStates States => _states;
 
@@ -22,6 +27,7 @@ namespace Game.Player
         {
             _states.SetDefault();
             _animator.SetAnimatorStates(_states);
+            _playerPanel.Present(_health, _states.PowerState);
         }
 
         private void OnEnable()
@@ -41,6 +47,7 @@ namespace Game.Player
         {
             _states.SwitchPowerState();
             _animator.SetAnimatorStates(_states);
+            _playerPanel.PresentPowerState(_states.PowerState);
         }
 
         public void TryMove(bool rightDirection)
@@ -107,6 +114,7 @@ namespace Game.Player
 
             _states.SetLandedState();
             _animator.SetAnimatorStates(_states);
+            _playerPanel.PresentHealth(_health);
         }
 
         private bool FallingDamageAndCheckDeath(float impactSpeed)

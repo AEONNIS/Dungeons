@@ -6,10 +6,10 @@ namespace Game.Model
     [Serializable]
     public class InteractionCouple
     {
-        [SerializeField] private ItemBase _item;
-        [SerializeField] private EnvironmentBase _environment;
+        [SerializeField] private ItemType _itemType;
+        [SerializeField] private EnvironmentType _environmentType;
 
-        public ItemBase Item => _item;
-        public EnvironmentBase Environment => _environment;
+        public ItemType ItemType => _itemType;
+        public EnvironmentType EnvironmentType => _environmentType;
     }
 }

@@ -9,10 +9,9 @@ namespace Game.Model
     {
         [SerializeField] List<InteractionDamage> _damages;
 
-
-        public Damage GetDamage(ItemBase item, EnvironmentBase environment)
+        public Damage GetDamage(ItemType itemType, EnvironmentType environmentType)
         {
-            return _damages.First(interaction => interaction.InteractionCouple.Item == item && interaction.InteractionCouple.Environment == environment).Damage;
+            return _damages.First(interaction => interaction.InteractionCouple.ItemType == itemType && interaction.InteractionCouple.EnvironmentType == environmentType).Damage;
         }
     }
 }

@@ -1,9 +1,9 @@
-﻿using Game.Model;
+﻿using Game.Model.PlayerCharacter;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Game.Player
+namespace Game.PlayerCharacter
 {
     public class PlayerMover : MonoBehaviour
     {

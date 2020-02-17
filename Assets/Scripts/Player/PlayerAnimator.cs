@@ -1,9 +1,9 @@
-﻿using Game.Model;
+﻿using Game.Model.PlayerCharacter;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Player
+namespace Game.PlayerCharacter
 {
     public class PlayerAnimator : MonoBehaviour
     {

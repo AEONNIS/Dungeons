@@ -18,8 +18,8 @@ TagManager:
   - Ground
   - Items
   - Player
-  - Ground destroyed
-  - Items destroyed
+  - GroundDestroyed
+  - ItemsDestroyed
   - 
   - 
   - 
