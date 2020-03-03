@@ -11,7 +11,7 @@ public class ItemDisplay : MonoBehaviour
 
   private Transform _thisTransform;
   private Rigidbody2D _rigidbody;
-  private Inventory _inventory;
+  private InventoryOLD _inventory;
 
   /// <summary>
   /// В каком слоте инвентаря находится предмет. -2 - предмет не помещен в инвентарь.
@@ -65,7 +65,7 @@ public class ItemDisplay : MonoBehaviour
     _thisGamObj = gameObject;
     _thisTransform = transform;
     _rigidbody = GetComponent<Rigidbody2D>();
-    _inventory = GameObject.Find("PlayerOLD").GetComponent<Inventory>();
+    _inventory = GameObject.Find("PlayerOLD").GetComponent<InventoryOLD>();
   }
 
   private void Start()

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace Game.Model
 {
@@ -7,22 +9,24 @@ namespace Game.Model
     {
         [SerializeField] private ItemType _type;
         [SerializeField] private string _name;
-        [SerializeField] [TextArea(3, 7)] private string _description;
-        [SerializeField] private float _maxStrength = 100.0f;
-        [SerializeField] private float _destructionWarningStrength = 10.0f;
-        [TextArea(3, 5)] [SerializeField] private string _destructionWarningMessage;
-        [TextArea(3, 5)] [SerializeField] private string _destructionMessage;
-        [SerializeField] private Sprite _sceneSprite;
-        [SerializeField] private Sprite _inventorySprite;
+        [TextArea(3, 7)]
+        [SerializeField] private string _description;
+        [SerializeField] private List<ItemPlaceState> _placeStates;
+        [SerializeField] private List<ItemStrengthState> _strengthStates;
 
         public ItemType Type => _type;
         public string Name => _name;
         public string Description => _description;
-        public float MaxStrength => _maxStrength;
-        public string DestructionWarningMessage => _destructionWarningMessage;
-        public string DestructionMessage => _destructionMessage;
-        public Sprite SceneSprite => _sceneSprite;
-        public Sprite InventorySprite => _inventorySprite;
+
+        public ItemPlaceState GetPlaceState(ItemPlace place)
+        {
+            return _placeStates.First(state => state.Place == place);
+        }
+
+        public ItemStrengthState GetStrengthState(float strength)
+        {
+            return _strengthStates.First(state => state.StrengthIsInRangeMinExclusive(strength));
+        }
     }
 
     public enum ItemType { Axe, Pick, Shovel }

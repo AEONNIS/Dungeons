@@ -14,7 +14,7 @@ namespace Game.Model.PlayerCharacter
 
             public float Damage => _damage;
 
-            public bool SpeedInRange(float speed)
+            public bool SpeedIsInRangeMinExclusive(float speed)
             {
                 return _minFallingSpeed < speed && speed <= _maxFallingSpeed;
             }

@@ -20,9 +20,41 @@ MonoBehaviour:
     \u0425\u043E\u0442\u044C \u0438 \u0441 \u0442\u0440\u0443\u0434\u043E\u043C, \u043D\u043E
     \u0440\u0430\u0441\u043A\u0430\u043B\u044B\u0432\u0430\u0435\u0442\u0441\u044F
     \u043A\u0438\u0440\u043A\u043E\u0439."
-  _minStrengthForNoDamage: 90
-  _minStrengthForStatic: 30
+  _strengthStates:
+  - _strengthRange:
+      _minValue: 85
+      _maxValue: 100
+    _name: NoVisibleDamage
+    _sprite: {fileID: 21300008, guid: 4a7bfbd06638d8e4c9973be5721e51b3, type: 3}
+    _bodyType: 2
+    _layer:
+      serializedVersion: 2
+      m_Bits: 256
+  - _strengthRange:
+      _minValue: 35
+      _maxValue: 85
+    _name: DamageStatic
+    _sprite: {fileID: 21300042, guid: 4a7bfbd06638d8e4c9973be5721e51b3, type: 3}
+    _bodyType: 2
+    _layer:
+      serializedVersion: 2
+      m_Bits: 256
+  - _strengthRange:
+      _minValue: 0
+      _maxValue: 35
+    _name: DamageDinamic
+    _sprite: {fileID: 21300042, guid: 4a7bfbd06638d8e4c9973be5721e51b3, type: 3}
+    _bodyType: 0
+    _layer:
+      serializedVersion: 2
+      m_Bits: 256
+  - _strengthRange:
+      _minValue: -1
+      _maxValue: 0
+    _name: Destroyed
+    _sprite: {fileID: 21300050, guid: 4a7bfbd06638d8e4c9973be5721e51b3, type: 3}
+    _bodyType: 0
+    _layer:
+      serializedVersion: 2
+      m_Bits: 2048
   _shutdownTimeWhenDestroyed: 5
-  _defaultSprite: {fileID: 21300008, guid: 4a7bfbd06638d8e4c9973be5721e51b3, type: 3}
-  _damagedSprite: {fileID: 21300042, guid: 4a7bfbd06638d8e4c9973be5721e51b3, type: 3}
-  _destroyedSprite: {fileID: 21300050, guid: 4a7bfbd06638d8e4c9973be5721e51b3, type: 3}

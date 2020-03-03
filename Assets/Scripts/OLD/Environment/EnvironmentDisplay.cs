@@ -15,7 +15,7 @@ public class EnvironmentDisplay : MonoBehaviour
   private Rigidbody2D _rigidbody;
   private ColorHighlightingEnvironment _selfHighlighting;
   private ItemDisplay _inHandsItemDisplay;
-  private Inventory _inventory;
+  private InventoryOLD _inventory;
 
   private float _damageSize = 0;
 
@@ -56,7 +56,7 @@ public class EnvironmentDisplay : MonoBehaviour
       _rigidbody = GetComponent<Rigidbody2D>();
 
     _selfHighlighting = GetComponent<ColorHighlightingEnvironment>();
-    _inventory = GameObject.Find("PlayerOLD").GetComponent<Inventory>();
+    _inventory = GameObject.Find("PlayerOLD").GetComponent<InventoryOLD>();
   }
 
   private void Start()

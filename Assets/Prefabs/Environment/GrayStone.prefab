@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7991745298467427582}
   - component: {fileID: 3195429063349110977}
-  - component: {fileID: 7937893499363843541}
   - component: {fileID: 1883427920516279369}
   - component: {fileID: 2043354197103992796}
   - component: {fileID: 3380543698214832308}
@@ -52,27 +51,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 11400000, guid: fd693cbae64a32c41866514dced09b84, type: 2}
   _strength: 100
-  _spriteRenderer: {fileID: 7785268979478370506}
+  _renderer: {fileID: 7785268979478370506}
   _rigidbody2D: {fileID: 7947889757747793514}
-  _groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  _destroyedGroundLayer:
-    serializedVersion: 2
-    m_Bits: 2048
-  _timer: {fileID: 7937893499363843541}
---- !u!114 &7937893499363843541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7997260630773303882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57cb2106ebf728543bc50381ba73a0fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1883427920516279369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,15 +65,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea2e7560f4b9fb4fae3df8048bc90f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _environment: {fileID: 3195429063349110977}
   _backlight: {fileID: 2043354197103992796}
-  _infoPanel: {fileID: 0}
-  _notifier: {fileID: 0}
-  _playerIsFarMessage: "\u041F\u043E\u0434\u043E\u0439\u0434\u0438\u0442\u0435 \u0431\u043B\u0438\u0436\u0435
-    \u0434\u043B\u044F \u0432\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044F
-    \u0441 \u044D\u0442\u0438\u043C \u0442\u0430\u0439\u043B\u043E\u043C."
   _player: {fileID: 0}
   _playerCloseDistance: 1.5
+  _playerFarMessage: "\u041F\u043E\u0434\u043E\u0439\u0434\u0438\u0442\u0435 \u0431\u043B\u0438\u0436\u0435
+    \u0434\u043B\u044F \u0432\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044F
+    \u0441 \u044D\u0442\u0438\u043C \u0442\u0430\u0439\u043B\u043E\u043C."
+  _infoPanel: {fileID: 0}
+  _notifier: {fileID: 0}
+  _environment: {fileID: 3195429063349110977}
 --- !u!114 &2043354197103992796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,8 +92,9 @@ MonoBehaviour:
   _playerCloseColor: {r: 0, g: 1, b: 0.53, a: 1}
   _playerFarColor: {r: 1, g: 0.723, b: 0, a: 1}
   _dealingDamageColor: {r: 1, g: 0, b: 0, a: 1}
-  _colorChangeDuration: 0.25
-  _colorBlinkingDuration: 0.05
+  _colorChangeDuration: 0.45
+  _colorBlinkingDuration: 0.15
+  _blinksCount: 3
 --- !u!114 &3380543698214832308
 MonoBehaviour:
   m_ObjectHideFlags: 0

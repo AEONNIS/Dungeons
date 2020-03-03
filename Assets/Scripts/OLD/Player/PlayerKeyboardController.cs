@@ -15,7 +15,7 @@ public class PlayerKeyboardController : MonoBehaviour //OLD
   public KeyCode pauseMenuKey = KeyCode.Escape;
 
   private PlayerOLD _player;
-  private Inventory _inventory;
+  private InventoryOLD _inventory;
 
   private float horizontal;
 
@@ -25,7 +25,7 @@ public class PlayerKeyboardController : MonoBehaviour //OLD
     if (_player == null)
       Debug.LogError("Скрипт 'Player' не установлен на контроллер");
 
-    _inventory = _inventory == null ? GetComponent<Inventory>() : _inventory;
+    _inventory = _inventory == null ? GetComponent<InventoryOLD>() : _inventory;
     if (_inventory == null)
       Debug.LogError("Скрипт 'Inventory' не установлен на контроллер");
   }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Inventory : MonoBehaviour
+public class InventoryOLD : MonoBehaviour
 {
   public Transform inventoryPanelT;
   public Image imgHands;

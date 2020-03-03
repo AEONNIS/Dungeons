@@ -24,13 +24,15 @@ namespace Game.UI.InventorySystem
         public void Activate(RectTransform sourceSlotRectTransform, Item sourceSlotItem)
         {
             AlignTo(sourceSlotRectTransform);
-            Present(sourceSlotItem.Base.InventorySprite);
+            Present(sourceSlotItem.Sprite);
             gameObject.SetActive(true);
         }
 
         public void PlaceInMousePosition()
         {
-            _rectTransform.position = _mainCamera.ScreenToWorldPoint(Input.mousePosition + _shiftOnScren);
+            //_rectTransform.position = _mainCamera.ScreenToWorldPoint(Input.mousePosition + _shiftOnScren);
+            Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, _mainCamera.nearClipPlane);
+            _rectTransform.position = _mainCamera.ScreenToWorldPoint(mousePosition);
         }
 
         private Vector3 CalculateShiftOnScreen()

@@ -1,20 +1,22 @@
-﻿using UnityEngine;
+﻿using Game.Model.InventorySystem;
+using UnityEngine;
 
 namespace Game.PlayerCharacter
 {
     public class KeyboardInput : MonoBehaviour
     {
         [SerializeField] private Player _player;
+        [SerializeField] private Inventory _inventory;
         [Header("Клавиши управления:")]
-        [SerializeField] private KeyCode _up = KeyCode.UpArrow;
-        [SerializeField] private KeyCode _down = KeyCode.DownArrow;
-        [SerializeField] private KeyCode _left = KeyCode.LeftArrow;
-        [SerializeField] private KeyCode _right = KeyCode.RightArrow;
-        [SerializeField] private KeyCode _jump = KeyCode.Space;
-        [SerializeField] private KeyCode _powerSwitch = KeyCode.LeftControl;
-        [SerializeField] private KeyCode _inventory = KeyCode.I;
-        [SerializeField] private KeyCode _pickUpItems = KeyCode.P;
-        [SerializeField] private KeyCode _gameMenu = KeyCode.Escape;
+        [SerializeField] private KeyCode _upKey = KeyCode.UpArrow;
+        [SerializeField] private KeyCode _downKey = KeyCode.DownArrow;
+        [SerializeField] private KeyCode _leftKey = KeyCode.LeftArrow;
+        [SerializeField] private KeyCode _rightKey = KeyCode.RightArrow;
+        [SerializeField] private KeyCode _jumpKey = KeyCode.Space;
+        [SerializeField] private KeyCode _powerSwitchKey = KeyCode.LeftControl;
+        [SerializeField] private KeyCode _inventoryKey = KeyCode.I;
+        [SerializeField] private KeyCode _pickUpItemsKey = KeyCode.P;
+        [SerializeField] private KeyCode _gameMenuKey = KeyCode.Escape;
 
         private HorizontalInput _horizontalInput;
 
@@ -23,7 +25,7 @@ namespace Game.PlayerCharacter
         {
             _horizontalInput = GetHorizontalInput();
 
-            if (Input.GetKey(_jump))
+            if (Input.GetKey(_jumpKey))
                 PlayerTryJump(_horizontalInput);
             else
                 PlayerTryMove(_horizontalInput);
@@ -31,17 +33,23 @@ namespace Game.PlayerCharacter
 
         private void Update()
         {
-            if (Input.GetKeyDown(_powerSwitch))
+            if (Input.GetKeyDown(_powerSwitchKey))
                 _player.SwitchPowerState();
+
+            if (Input.GetKeyDown(_inventoryKey))
+                _inventory.SwitchOpeningState();
+
+            if (Input.GetKeyDown(_pickUpItemsKey))
+                _inventory.PickUpAllItemsNearPlayer();
 
         }
         #endregion
 
         private HorizontalInput GetHorizontalInput()
         {
-            if (Input.GetKey(_left) && Input.GetKey(_right) == false)
+            if (Input.GetKey(_leftKey) && Input.GetKey(_rightKey) == false)
                 return HorizontalInput.Left;
-            else if (Input.GetKey(_right) && Input.GetKey(_left) == false)
+            else if (Input.GetKey(_rightKey) && Input.GetKey(_leftKey) == false)
                 return HorizontalInput.Right;
             else
                 return HorizontalInput.None;

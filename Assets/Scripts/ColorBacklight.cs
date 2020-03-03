@@ -13,8 +13,18 @@ namespace Game
         [SerializeField] private Color _playerFarColor = new Color(1.0f, 0.723f, 0.0f);
         [SerializeField] private Color _dealingDamageColor = new Color(1.0f, 0.0f, 0.0f);
         [Header("Durations:")]
-        [SerializeField] private float _colorChangeDuration = 0.25f;
-        [SerializeField] private float _colorBlinkingDuration = 0.05f;
+        [SerializeField] private float _colorChangeDuration = 0.45f;
+        [SerializeField] private float _colorBlinkingDuration = 0.15f;
+        [SerializeField] private int _blinksCount = 3;
+
+        private Action _blinks;
+
+        #region Unity
+        private void Awake()
+        {
+            _blinks = BlinksColorOnDealingDamage(_blinksCount);
+        }
+        #endregion
 
         public void WhenPointerHover(bool playerIsClose)
         {
@@ -26,9 +36,9 @@ namespace Game
             _colorChanger.StartColorChange(_renderer, _defaultColor, _colorChangeDuration);
         }
 
-        public void BlinkColorOnDealingDamage()
+        public void BlinksColorOnDealingDamage()
         {
-            BlinkColorOnceOnDealingDamage(() => BlinkColorOnceOnDealingDamage());
+            _blinks.Invoke();
         }
 
         private void WhenPlayerClose()
@@ -41,12 +51,22 @@ namespace Game
             _colorChanger.StartColorChange(_renderer, _playerFarColor, _colorChangeDuration);
         }
 
+        private Action BlinksColorOnDealingDamage(int blinksCount)
+        {
+            Action blinks = () => BlinkColorOnceOnDealingDamage(null);
+
+            for (int i = 0; i < blinksCount - 1; i++)
+                blinks = () => BlinkColorOnceOnDealingDamage(blinks);
+
+            return blinks;
+        }
+
         private void BlinkColorOnceOnDealingDamage(Action onEnd = null)
         {
-            _colorChanger.StartColorChange(_renderer, _dealingDamageColor, _colorBlinkingDuration, () =>
-            {
-                _colorChanger.StartColorChange(_renderer, _defaultColor, _colorBlinkingDuration, onEnd);
-            });
+            _colorChanger.StartColorChange(_renderer, _dealingDamageColor, _colorBlinkingDuration * 0.5f, () =>
+              {
+                  _colorChanger.StartColorChange(_renderer, _defaultColor, _colorBlinkingDuration * 0.5f, onEnd);
+              });
         }
     }
 }

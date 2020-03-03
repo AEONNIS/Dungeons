@@ -16,7 +16,7 @@ namespace Game.UI.InventorySystem
         public void PresentItem(Item item)
         {
             if (item != null)
-                Present(item.Base.InventorySprite);
+                Present(item.Sprite);
             else
                 Present(_emptySlotSprite);
         }

@@ -25,7 +25,7 @@ public class SlotHands : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
   private ItemDisplay _itemDSelf;
   public ItemDisplay _ItemDSelf { get { return _itemDSelf; } }
   private UI_Update _UI_Panel;
-  private Inventory _inventory;
+  private InventoryOLD _inventory;
 
   private void Awake()
   {
@@ -36,7 +36,7 @@ public class SlotHands : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     _imgSelf = GetComponent<Image>();
     _imgSlotForDrag = RT_slotForDrag.GetComponent<Image>();
     _UI_Panel = GameObject.Find("TooltipPanelOLD").GetComponent<UI_Update>();
-    _inventory = GameObject.Find("PlayerOLD").GetComponent<Inventory>();
+    _inventory = GameObject.Find("PlayerOLD").GetComponent<InventoryOLD>();
   }
 
   public void OnPointerEnter(PointerEventData eventData)

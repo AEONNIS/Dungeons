@@ -3,19 +3,20 @@ using UnityEngine;
 
 namespace Game
 {
-    public class EnvironmentMouseController : ElementMouseController
+    public class ItemMouseController : ElementMouseController
     {
-        [SerializeField] private Environment _environment;
+        [SerializeField] private Item _item;
+        [SerializeField] private Model.InventorySystem.Inventory _inventory;
 
-        private protected override IInfoElement InfoElement => (IInfoElement)_environment;
+        private protected override IInfoElement InfoElement => (IInfoElement)_item;
 
         #region Unity
         private void OnValidate()
         {
-            if ((_environment is IInfoElement) == false)
+            if ((_item is IInfoElement) == false)
             {
-                _environment = null;
-                Debug.LogError($"{_environment.name} needs to implement {nameof(IInfoElement)}");
+                _item = null;
+                Debug.LogError($"{_item.name} needs to implement {nameof(IInfoElement)}");
             }
         }
 
@@ -33,7 +34,7 @@ namespace Game
         {
             if (PlayerIsClose())
             {
-
+                _inventory.TakeItemInHands(_item);
             }
             else
             {

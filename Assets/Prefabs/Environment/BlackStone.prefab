@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 629163421068656900}
   - component: {fileID: 1460641124970447695}
-  - component: {fileID: 7873446516587566977}
   - component: {fileID: 8224803679938867247}
   - component: {fileID: 740718543044745748}
   - component: {fileID: 607962611679154504}
@@ -49,27 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 11400000, guid: a4195103dd1dd3840b7cfb2e8325906c, type: 2}
   _strength: 100
-  _spriteRenderer: {fileID: 740718543044745748}
+  _renderer: {fileID: 740718543044745748}
   _rigidbody2D: {fileID: 0}
-  _groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  _destroyedGroundLayer:
-    serializedVersion: 2
-    m_Bits: 2048
-  _timer: {fileID: 7873446516587566977}
---- !u!114 &7873446516587566977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 626071578272440018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57cb2106ebf728543bc50381ba73a0fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8224803679938867247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,13 +62,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea2e7560f4b9fb4fae3df8048bc90f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _environment: {fileID: 1460641124970447695}
   _backlight: {fileID: 0}
-  _infoPanel: {fileID: 0}
-  _notifier: {fileID: 0}
-  _playerIsFarMessage: 
   _player: {fileID: 0}
   _playerCloseDistance: 1.5
+  _playerFarMessage: 
+  _infoPanel: {fileID: 0}
+  _notifier: {fileID: 0}
+  _environment: {fileID: 1460641124970447695}
 --- !u!212 &740718543044745748
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -40,7 +40,7 @@ namespace Game.Model.PlayerCharacter
 
         public float GetDamageForFallingSpeed(float impactSpeed)
         {
-            return impactSpeed <= _maxSafeFalingSpeed ? 0.0f : _fallDamages.First(fallDamage => fallDamage.SpeedInRange(impactSpeed)).Damage;
+            return impactSpeed <= _maxSafeFalingSpeed ? 0.0f : _fallDamages.First(fallDamage => fallDamage.SpeedIsInRangeMinExclusive(impactSpeed)).Damage;
         }
 
         private void ValidateTotalForceParts()

@@ -20,7 +20,7 @@ public class ColorHighlightingItem : MonoBehaviour
   private Transform _playerTransform;
   private UI_Update _UI_Panel; // Панель в интерфейсе для вывода инфориации об объекте.
   private ItemDisplay _itemDisplay;
-  private Inventory _inventory;
+  private InventoryOLD _inventory;
 
   private selectionState _selectionState = selectionState.normal;
 
@@ -31,7 +31,7 @@ public class ColorHighlightingItem : MonoBehaviour
     _playerTransform = GameObject.Find("PlayerOLD").transform;
     _UI_Panel = GameObject.Find("TooltipPanelOLD").GetComponent<UI_Update>();
     _itemDisplay = GetComponent<ItemDisplay>();
-    _inventory = _playerTransform.GetComponent<Inventory>();
+    _inventory = _playerTransform.GetComponent<InventoryOLD>();
   }
 
   private void OnMouseEnter()

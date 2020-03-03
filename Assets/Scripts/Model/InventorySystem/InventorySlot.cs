@@ -11,10 +11,11 @@ namespace Game.Model.InventorySystem
 
         public Item Item => _item;
 
-        public bool TryPutItem(Item item)
+        public bool TrySetItem(Item item)
         {
             if (_item == null)
             {
+                item.PlaceIn(ItemPlace.Inventory);
                 _presenter.PresentItem(_item = item);
                 return true;
             }
@@ -22,11 +23,12 @@ namespace Game.Model.InventorySystem
             return false;
         }
 
-        public Item PickUpItem()
+        public Item RemoveItem()
         {
             if (_item != null)
             {
                 Item item = _item;
+                item.PlaceIn(ItemPlace.Scene);
                 _presenter.PresentItem(_item = null);
                 return item;
             }
