@@ -14,12 +14,15 @@ namespace Game.Model.InventorySystem
         [SerializeField] private InventoryNotification _notification;
         [SerializeField] private ItemDetector _detector;
 
-        private List<InventorySlot> _slots = new List<InventorySlot>();
+        private readonly List<InventorySlot> _inventorySlots = new List<InventorySlot>();
+        private List<InventorySlot> _allSlots = new List<InventorySlot>();
 
         #region Unity
         private void Awake()
         {
-            _slotsContainer.GetComponentsInChildren(_slots);
+            _slotsContainer.GetComponentsInChildren(_inventorySlots);
+            _allSlots = _inventorySlots;
+            _allSlots.Add(_handsSlot);
         }
         #endregion
 
@@ -52,7 +55,7 @@ namespace Game.Model.InventorySystem
         public void PickUpAllItemsNearPlayer()
         {
             List<Item> items = _detector.GetItemsNearPlayer();
-            List<InventorySlot> emptySlots = _slots.Where(slot => slot.Item == null).ToList();
+            List<InventorySlot> emptySlots = _inventorySlots.Where(slot => slot.Item == null).ToList();
             if (items.Count == 0 || emptySlots.Count == 0)
                 return;
 
@@ -76,14 +79,17 @@ namespace Game.Model.InventorySystem
 
         public void SwapItemsInSlots(InventorySlot slotA, InventorySlot slotB)
         {
-            Item itemA = slotA.RemoveItem();
-            slotA.TrySetItem(slotB.RemoveItem());
-            slotB.TrySetItem(itemA);
+            if (slotA.Item != null || slotB.Item != null)
+            {
+                Item itemA = slotA.RemoveItem();
+                slotA.TrySetItem(slotB.RemoveItem());
+                slotB.TrySetItem(itemA);
+            }
         }
 
         public void ThrowItemFromSlot(InventorySlot inventorySlot)
         {
-            Item item = _slots.First(slot => slot == inventorySlot).RemoveItem();
+            Item item = _allSlots.First(slot => slot == inventorySlot).RemoveItem();
 
             if (item != null)
                 PutItemNearPlayer(item);
@@ -91,7 +97,7 @@ namespace Game.Model.InventorySystem
 
         private InventorySlot GetFirstEmptySlot()
         {
-            return _slots.FirstOrDefault(slot => slot.Item == null);
+            return _inventorySlots.FirstOrDefault(slot => slot.Item == null);
         }
 
         private void PutItemNearPlayer(Item item)

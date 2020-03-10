@@ -7,12 +7,15 @@ namespace Game.UI.InventorySystem
     public class SlotMouseController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler,
                                        IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
     {
+        [SerializeField] private Camera _mainCamera;
+        [SerializeField] private RectTransform _inventoryRectTransform;
         [SerializeField] private RectTransform _rectTransform;
+        [SerializeField] private RectTransform _handsSlotRectTransform;
+        [SerializeField] private Inventory _inventory;
         [SerializeField] private InventorySlot _slot;
+        [SerializeField] private InventorySlot _handsSlot;
         [SerializeField] private SlotPresenter _presenter;
         [SerializeField] private DragSlotPresenter _dragSlotPresenter;
-        [SerializeField] private Model.InventorySystem.Inventory _inventory;
-        [SerializeField] private RectTransform _inventoryRectTransform;
 
         private bool _dragging;
 
@@ -31,7 +34,8 @@ namespace Game.UI.InventorySystem
 
         public void OnPointerClick(PointerEventData eventData)
         {
-
+            if (eventData.button == PointerEventData.InputButton.Left && eventData.clickCount == 2)
+                _inventory.SwapItemsInSlots(_slot, _handsSlot);
         }
 
         public void OnBeginDrag(PointerEventData eventData)
@@ -46,15 +50,16 @@ namespace Game.UI.InventorySystem
                 _dragSlotPresenter.PlaceInMousePosition();
         }
 
+        public void OnDrop(PointerEventData eventData)
+        {
+            if (eventData.pointerDrag.TryGetComponent(out InventorySlot dragSlot) && dragSlot.Item != null)
+                _inventory.SwapItemsInSlots(dragSlot, _slot);
+        }
+
         public void OnEndDrag(PointerEventData eventData)
         {
             if (_dragging)
                 FinishDragging();
-        }
-
-        public void OnDrop(PointerEventData eventData)
-        {
-            SwapItems(eventData);
         }
         #endregion
 
@@ -69,22 +74,13 @@ namespace Game.UI.InventorySystem
         {
             _dragging = false;
             _dragSlotPresenter.gameObject.SetActive(false);
+            _presenter.ResetBacklight();
 
-            if (RectTransformUtility.RectangleContainsScreenPoint(_inventoryRectTransform, Input.mousePosition) == false)
-            {
+            if (RectTransformUtility.RectangleContainsScreenPoint(_inventoryRectTransform, Input.mousePosition, _mainCamera) == false &&
+                RectTransformUtility.RectangleContainsScreenPoint(_handsSlotRectTransform, Input.mousePosition, _mainCamera) == false)
                 _inventory.ThrowItemFromSlot(_slot);
-                _presenter.ResetBacklight();
-            }
-            else if (RectTransformUtility.RectangleContainsScreenPoint(_rectTransform, Input.mousePosition))
-            {
+            else if (RectTransformUtility.RectangleContainsScreenPoint(_rectTransform, Input.mousePosition, _mainCamera))
                 _presenter.PointerEnterBacklight();
-            }
-        }
-
-        private void SwapItems(PointerEventData eventData)
-        {
-            if (eventData.pointerDrag.TryGetComponent(out InventorySlot slot))
-                _inventory.SwapItemsInSlots(_slot, slot);
         }
     }
 }

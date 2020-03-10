@@ -34,6 +34,7 @@ namespace Game
         {
             if (PlayerIsClose())
             {
+                _backlight.ResetBacklightImmediately();
                 _inventory.TakeItemInHands(_item);
             }
             else

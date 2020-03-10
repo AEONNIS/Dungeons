@@ -14,25 +14,18 @@ namespace Game.UI.InventorySystem
 
         private Vector3 _shiftOnScren;
 
-        #region Unity
-        private void Awake()
-        {
-            _shiftOnScren = CalculateShiftOnScreen();
-        }
-        #endregion
-
         public void Activate(RectTransform sourceSlotRectTransform, Item sourceSlotItem)
         {
             AlignTo(sourceSlotRectTransform);
+            _shiftOnScren = CalculateShiftOnScreen();
             Present(sourceSlotItem.Sprite);
             gameObject.SetActive(true);
         }
 
         public void PlaceInMousePosition()
         {
-            //_rectTransform.position = _mainCamera.ScreenToWorldPoint(Input.mousePosition + _shiftOnScren);
             Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, _mainCamera.nearClipPlane);
-            _rectTransform.position = _mainCamera.ScreenToWorldPoint(mousePosition);
+            _rectTransform.position = _mainCamera.ScreenToWorldPoint(mousePosition + _shiftOnScren);
         }
 
         private Vector3 CalculateShiftOnScreen()

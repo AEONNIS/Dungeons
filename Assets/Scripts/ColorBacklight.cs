@@ -36,6 +36,11 @@ namespace Game
             _colorChanger.StartColorChange(_renderer, _defaultColor, _colorChangeDuration);
         }
 
+        public void ResetBacklightImmediately()
+        {
+            _renderer.color = _defaultColor;
+        }
+
         public void BlinksColorOnDealingDamage()
         {
             _blinks.Invoke();

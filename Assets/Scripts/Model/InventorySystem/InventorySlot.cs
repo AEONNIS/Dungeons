@@ -13,7 +13,7 @@ namespace Game.Model.InventorySystem
 
         public bool TrySetItem(Item item)
         {
-            if (_item == null)
+            if (_item == null && item != null)
             {
                 item.PlaceIn(ItemPlace.Inventory);
                 _presenter.PresentItem(_item = item);
