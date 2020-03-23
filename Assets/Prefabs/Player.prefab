@@ -237,16 +237,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 3063806134951527930}
-  _inventory: {fileID: 0}
-  _upKey: 273
-  _downKey: 274
-  _leftKey: 276
-  _rightKey: 275
-  _jumpKey: 32
-  _powerSwitchKey: 306
-  _inventoryKey: 105
-  _pickUpItemsKey: 112
-  _gameMenuKey: 27
+  _upKeys: 1101000077000000
+  _downKeys: 1201000073000000
+  _leftKeys: 1401000061000000
+  _rightKeys: 1301000064000000
+  _jumpKeys: 20000000
+  _powerSwitchKeys: 3201000031010000
+  _inventoryKeys: 69000000
+  _pickUpItemsKeys: 70000000
+  _gameMenuKeys: 1b000000
 --- !u!114 &3063806134951527930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +263,7 @@ MonoBehaviour:
   _base: {fileID: 11400000, guid: 72a5eb861aa052043ab5b5501bdb3d45, type: 2}
   _mover: {fileID: 3063806134951527931}
   _animator: {fileID: 3063806134951527932}
+  _inventory: {fileID: 0}
   _keyboardinput: {fileID: 3063806134951527929}
   _timer: {fileID: 818812589525897573}
   _jumpStartTime: 0.01
@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 3063806135098328614}
   - component: {fileID: 3063806134454483251}
   m_Layer: 10
-  m_Name: ItemsDetector
+  m_Name: ItemDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -472,7 +472,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3063806135098328612}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -504,6 +504,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectingCollider: {fileID: 3063806135098328614}
-  _itemsLayer:
+  _itemLayers:
     serializedVersion: 2
     m_Bits: 512

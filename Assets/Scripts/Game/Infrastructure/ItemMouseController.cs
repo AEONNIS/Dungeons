@@ -1,0 +1,49 @@
+﻿using Game.Control;
+using Game.Model;
+using UnityEngine;
+
+namespace Game
+{
+    public class ItemMouseController : ElementMouseController
+    {
+        [SerializeField] private Item _item;
+
+        private protected override IInfoElement InfoElement => (IInfoElement)_item;
+
+        #region Unity
+        private void OnValidate()
+        {
+            if ((_item is IInfoElement) == false)
+            {
+                _item = null;
+                Debug.LogError($"{_item.name} needs to implement {nameof(IInfoElement)}");
+            }
+        }
+
+        private void OnMouseEnter()
+        {
+            MouseEntered();
+        }
+
+        private void OnMouseExit()
+        {
+            MouseExited();
+        }
+
+        private void OnMouseDown()
+        {
+            if (PlayerIsClose())
+            {
+                if (_player.Inventory.TryTakeItemInHands(_item))
+                    _backlighter.ResetBacklightImmediately();
+            }
+            else
+            {
+                _notifier?.ShowMessage(_playerFarMessage, InfoElement.Sprite);
+            }
+
+            _infoPanel.Present(InfoElement);
+        }
+        #endregion
+    }
+}

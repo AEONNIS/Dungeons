@@ -213,7 +213,7 @@ RectTransform:
   - {fileID: 1994302057}
   - {fileID: 232736357}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -289,14 +289,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 702143158}
+    - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
+        type: 3}
       propertyPath: _infoPanel
       value: 
       objectReference: {fileID: 732007636}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
-      propertyPath: _player
+      propertyPath: _notifier
       value: 
-      objectReference: {fileID: 702143158}
+      objectReference: {fileID: 217911524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff19962351d3cd4bb25b4abc820704f, type: 3}
 --- !u!4 &113393506 stripped
@@ -700,12 +705,12 @@ MonoBehaviour:
   _mainCamera: {fileID: 1631279094}
   _inventoryRectTransform: {fileID: 1340597249}
   _rectTransform: {fileID: 161416385}
-  _handsSlotRectTransform: {fileID: 1548389230}
   _inventory: {fileID: 1340597250}
   _slot: {fileID: 161416389}
-  _handsSlot: {fileID: 1548389235}
   _presenter: {fileID: 161416388}
   _dragSlotPresenter: {fileID: 1052059941}
+  _handsSlotRectTransform: {fileID: 1548389230}
+  _handsSlot: {fileID: 1548389235}
 --- !u!222 &161416391
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -854,12 +859,12 @@ MonoBehaviour:
   _mainCamera: {fileID: 1631279094}
   _inventoryRectTransform: {fileID: 1340597249}
   _rectTransform: {fileID: 185092415}
-  _handsSlotRectTransform: {fileID: 1548389230}
   _inventory: {fileID: 1340597250}
   _slot: {fileID: 185092419}
-  _handsSlot: {fileID: 1548389235}
   _presenter: {fileID: 185092418}
   _dragSlotPresenter: {fileID: 1052059941}
+  _handsSlotRectTransform: {fileID: 1548389230}
+  _handsSlot: {fileID: 1548389235}
 --- !u!222 &185092421
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -877,7 +882,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 187506511}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -891,7 +896,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187506510}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -920,7 +925,7 @@ Transform:
   - {fileID: 5822051523315194869}
   - {fileID: 7845417568696857067}
   - {fileID: 7311797836917097369}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1109845406}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &192578354
@@ -992,14 +997,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 702143158}
+    - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
+        type: 3}
       propertyPath: _infoPanel
       value: 
       objectReference: {fileID: 732007636}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
-      propertyPath: _player
+      propertyPath: _notifier
       value: 
-      objectReference: {fileID: 702143158}
+      objectReference: {fileID: 217911524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff19962351d3cd4bb25b4abc820704f, type: 3}
 --- !u!4 &192578355 stripped
@@ -1277,12 +1287,12 @@ MonoBehaviour:
   _mainCamera: {fileID: 1631279094}
   _inventoryRectTransform: {fileID: 1340597249}
   _rectTransform: {fileID: 198062066}
-  _handsSlotRectTransform: {fileID: 1548389230}
   _inventory: {fileID: 1340597250}
   _slot: {fileID: 198062070}
-  _handsSlot: {fileID: 1548389235}
   _presenter: {fileID: 198062069}
   _dragSlotPresenter: {fileID: 1052059941}
+  _handsSlotRectTransform: {fileID: 1548389230}
+  _handsSlot: {fileID: 1548389235}
 --- !u!222 &198062072
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1360,14 +1370,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 702143158}
+    - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
+        type: 3}
       propertyPath: _infoPanel
       value: 
       objectReference: {fileID: 732007636}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
-      propertyPath: _player
+      propertyPath: _notifier
       value: 
-      objectReference: {fileID: 702143158}
+      objectReference: {fileID: 217911524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff19962351d3cd4bb25b4abc820704f, type: 3}
 --- !u!4 &209267490 stripped
@@ -1745,12 +1760,12 @@ MonoBehaviour:
   _mainCamera: {fileID: 1631279094}
   _inventoryRectTransform: {fileID: 1340597249}
   _rectTransform: {fileID: 218214299}
-  _handsSlotRectTransform: {fileID: 1548389230}
   _inventory: {fileID: 1340597250}
   _slot: {fileID: 218214303}
-  _handsSlot: {fileID: 1548389235}
   _presenter: {fileID: 218214302}
   _dragSlotPresenter: {fileID: 1052059941}
+  _handsSlotRectTransform: {fileID: 1548389230}
+  _handsSlot: {fileID: 1548389235}
 --- !u!222 &218214305
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2003,12 +2018,12 @@ MonoBehaviour:
   _mainCamera: {fileID: 1631279094}
   _inventoryRectTransform: {fileID: 1340597249}
   _rectTransform: {fileID: 232838736}
-  _handsSlotRectTransform: {fileID: 1548389230}
   _inventory: {fileID: 1340597250}
   _slot: {fileID: 232838740}
-  _handsSlot: {fileID: 1548389235}
   _presenter: {fileID: 232838739}
   _dragSlotPresenter: {fileID: 1052059941}
+  _handsSlotRectTransform: {fileID: 1548389230}
+  _handsSlot: {fileID: 1548389235}
 --- !u!222 &232838742
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2171,6 +2186,11 @@ PrefabInstance:
       propertyPath: _infoPanel
       value: 
       objectReference: {fileID: 732007636}
+    - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
+        type: 3}
+      propertyPath: _notifier
+      value: 
+      objectReference: {fileID: 217911524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff19962351d3cd4bb25b4abc820704f, type: 3}
 --- !u!4 &269319037 stripped
@@ -2248,14 +2268,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 702143158}
+    - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
+        type: 3}
       propertyPath: _infoPanel
       value: 
       objectReference: {fileID: 732007636}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
-      propertyPath: _player
+      propertyPath: _notifier
       value: 
-      objectReference: {fileID: 702143158}
+      objectReference: {fileID: 217911524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff19962351d3cd4bb25b4abc820704f, type: 3}
 --- !u!4 &359379849 stripped
@@ -2728,14 +2753,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 702143158}
+    - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
+        type: 3}
       propertyPath: _infoPanel
       value: 
       objectReference: {fileID: 732007636}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
-      propertyPath: _player
+      propertyPath: _notifier
       value: 
-      objectReference: {fileID: 702143158}
+      objectReference: {fileID: 217911524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff19962351d3cd4bb25b4abc820704f, type: 3}
 --- !u!4 &527095865 stripped
@@ -3290,12 +3320,12 @@ MonoBehaviour:
   _mainCamera: {fileID: 1631279094}
   _inventoryRectTransform: {fileID: 1340597249}
   _rectTransform: {fileID: 635262946}
-  _handsSlotRectTransform: {fileID: 1548389230}
   _inventory: {fileID: 1340597250}
   _slot: {fileID: 635262950}
-  _handsSlot: {fileID: 1548389235}
   _presenter: {fileID: 635262949}
   _dragSlotPresenter: {fileID: 1052059941}
+  _handsSlotRectTransform: {fileID: 1548389230}
+  _handsSlot: {fileID: 1548389235}
 --- !u!222 &635262952
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3544,12 +3574,12 @@ MonoBehaviour:
   _mainCamera: {fileID: 1631279094}
   _inventoryRectTransform: {fileID: 1340597249}
   _rectTransform: {fileID: 663769096}
-  _handsSlotRectTransform: {fileID: 1548389230}
   _inventory: {fileID: 1340597250}
   _slot: {fileID: 663769100}
-  _handsSlot: {fileID: 1548389235}
   _presenter: {fileID: 663769099}
   _dragSlotPresenter: {fileID: 1052059941}
+  _handsSlotRectTransform: {fileID: 1548389230}
+  _handsSlot: {fileID: 1548389235}
 --- !u!222 &663769102
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3812,14 +3842,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 702143158}
+    - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
+        type: 3}
       propertyPath: _infoPanel
       value: 
       objectReference: {fileID: 732007636}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
-      propertyPath: _player
+      propertyPath: _notifier
       value: 
-      objectReference: {fileID: 702143158}
+      objectReference: {fileID: 217911524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff19962351d3cd4bb25b4abc820704f, type: 3}
 --- !u!4 &702545488 stripped
@@ -4172,14 +4207,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 702143158}
+    - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
+        type: 3}
       propertyPath: _infoPanel
       value: 
       objectReference: {fileID: 732007636}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
-      propertyPath: _player
+      propertyPath: _notifier
       value: 
-      objectReference: {fileID: 702143158}
+      objectReference: {fileID: 217911524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff19962351d3cd4bb25b4abc820704f, type: 3}
 --- !u!4 &739242381 stripped
@@ -4357,14 +4397,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 702143158}
+    - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
+        type: 3}
       propertyPath: _infoPanel
       value: 
       objectReference: {fileID: 732007636}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
-      propertyPath: _player
+      propertyPath: _notifier
       value: 
-      objectReference: {fileID: 702143158}
+      objectReference: {fileID: 217911524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff19962351d3cd4bb25b4abc820704f, type: 3}
 --- !u!4 &799610828 stripped
@@ -4738,14 +4783,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 702143158}
+    - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
+        type: 3}
       propertyPath: _infoPanel
       value: 
       objectReference: {fileID: 732007636}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
-      propertyPath: _player
+      propertyPath: _notifier
       value: 
-      objectReference: {fileID: 702143158}
+      objectReference: {fileID: 217911524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff19962351d3cd4bb25b4abc820704f, type: 3}
 --- !u!4 &927005515 stripped
@@ -4823,14 +4873,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 702143158}
+    - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
+        type: 3}
       propertyPath: _infoPanel
       value: 
       objectReference: {fileID: 732007636}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
-      propertyPath: _player
+      propertyPath: _notifier
       value: 
-      objectReference: {fileID: 702143158}
+      objectReference: {fileID: 217911524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff19962351d3cd4bb25b4abc820704f, type: 3}
 --- !u!4 &1009251724 stripped
@@ -5197,12 +5252,12 @@ MonoBehaviour:
   _mainCamera: {fileID: 1631279094}
   _inventoryRectTransform: {fileID: 1340597249}
   _rectTransform: {fileID: 1098230695}
-  _handsSlotRectTransform: {fileID: 1548389230}
   _inventory: {fileID: 1340597250}
   _slot: {fileID: 1098230699}
-  _handsSlot: {fileID: 1548389235}
   _presenter: {fileID: 1098230698}
   _dragSlotPresenter: {fileID: 1052059941}
+  _handsSlotRectTransform: {fileID: 1548389230}
+  _handsSlot: {fileID: 1548389235}
 --- !u!222 &1098230701
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5211,6 +5266,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1098230694}
   m_CullTransparentMesh: 0
+--- !u!1 &1109845405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1109845406}
+  - component: {fileID: 1109845407}
+  m_Layer: 0
+  m_Name: Level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1109845406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109845405}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 187506511}
+  - {fileID: 1327586831}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1109845407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109845405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e6a2edf4ba104d488c17f56090ecd51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 702143158}
+  _interaction: {fileID: 11400000, guid: 81f92ad79264dd84e9a2869f629c909e, type: 2}
 --- !u!1 &1148357214
 GameObject:
   m_ObjectHideFlags: 0
@@ -5351,12 +5453,12 @@ MonoBehaviour:
   _mainCamera: {fileID: 1631279094}
   _inventoryRectTransform: {fileID: 1340597249}
   _rectTransform: {fileID: 1148357215}
-  _handsSlotRectTransform: {fileID: 1548389230}
   _inventory: {fileID: 1340597250}
   _slot: {fileID: 1148357219}
-  _handsSlot: {fileID: 1548389235}
   _presenter: {fileID: 1148357218}
   _dragSlotPresenter: {fileID: 1052059941}
+  _handsSlotRectTransform: {fileID: 1548389230}
+  _handsSlot: {fileID: 1548389235}
 --- !u!222 &1148357221
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5784,14 +5886,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 702143158}
+    - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
+        type: 3}
       propertyPath: _infoPanel
       value: 
       objectReference: {fileID: 732007636}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
-      propertyPath: _player
+      propertyPath: _notifier
       value: 
-      objectReference: {fileID: 702143158}
+      objectReference: {fileID: 217911524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff19962351d3cd4bb25b4abc820704f, type: 3}
 --- !u!4 &1320061317 stripped
@@ -5823,7 +5930,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327586830}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5845,8 +5952,8 @@ Transform:
   - {fileID: 819261688}
   - {fileID: 688976721}
   - {fileID: 368300081}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 1109845406}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1340597248
 GameObject:
@@ -5955,17 +6062,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _notifier: {fileID: 217911524}
-  _takeItemInHandsMessage: "\u0412\u044B \u0432\u0437\u044F\u043B\u0438 \u0432 \u0440\u0443\u043A\u0438 "
-  _throwItemFromHandMessage: "\u0412\u044B \u0432\u044B\u0431\u0440\u043E\u0441\u0438\u043B\u0438
-    \u0438\u0437 \u0440\u0443\u043A "
-  _fullInventoryMessage: "\u0418\u043D\u0432\u0435\u043D\u0442\u0430\u0440\u044C \u0443\u0436\u0435
-    \u043F\u043E\u043B\u043E\u043D. \u041E\u0441\u0432\u043E\u0431\u043E\u0434\u0438\u0442\u0435
-    \u043C\u0435\u0441\u0442\u043E, \u0435\u0441\u043B\u0438 \u0445\u043E\u0442\u0438\u0442\u0435
-    \u0432\u0437\u044F\u0442\u044C \u0434\u0440\u0443\u0433\u043E\u0439 \u043F\u0440\u0435\u0434\u043C\u0435\u0442."
-  _itemsPickedUpMessage: "\u0412\u044B \u043F\u043E\u0434\u043E\u0431\u0440\u0430\u043B\u0438
-    \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u043E\u0432: "
-  _itemsDidNotFitIntoInventoryMessage: "\u041D\u0435 \u0432\u043B\u0435\u0437\u043B\u043E
-    \u0432 \u0438\u043D\u0432\u0435\u043D\u0442\u0430\u0440\u044C \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u043E\u0432: "
+  _messages:
+  - _notification: 0
+    _message: "\u0412\u044B \u0432\u0437\u044F\u043B\u0438 \u0432 \u0440\u0443\u043A\u0438 "
+  - _notification: 1
+    _message: "\u0412\u044B \u0432\u044B\u0431\u0440\u043E\u0441\u0438\u043B\u0438
+      \u0438\u0437 \u0440\u0443\u043A "
+  - _notification: 2
+    _message: "\u0418\u043D\u0432\u0435\u043D\u0442\u0430\u0440\u044C \u0443\u0436\u0435
+      \u043F\u043E\u043B\u043E\u043D. \u041E\u0441\u0432\u043E\u0431\u043E\u0434\u0438\u0442\u0435
+      \u043C\u0435\u0441\u0442\u043E, \u0435\u0441\u043B\u0438 \u0445\u043E\u0442\u0438\u0442\u0435
+      \u0432\u0437\u044F\u0442\u044C \u0434\u0440\u0443\u0433\u043E\u0439 \u043F\u0440\u0435\u0434\u043C\u0435\u0442."
+  - _notification: 3
+    _message: "\u0412\u044B \u043F\u043E\u0434\u043E\u0431\u0440\u0430\u043B\u0438
+      \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u043E\u0432: "
+  - _notification: 4
+    _message: "\u041D\u0435 \u0432\u043B\u0435\u0437\u043B\u043E \u0432 \u0438\u043D\u0432\u0435\u043D\u0442\u0430\u0440\u044C
+      \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u043E\u0432: "
 --- !u!1 &1351099305
 GameObject:
   m_ObjectHideFlags: 0
@@ -6279,12 +6392,12 @@ MonoBehaviour:
   _mainCamera: {fileID: 1631279094}
   _inventoryRectTransform: {fileID: 1340597249}
   _rectTransform: {fileID: 1426477212}
-  _handsSlotRectTransform: {fileID: 1548389230}
   _inventory: {fileID: 1340597250}
   _slot: {fileID: 1426477216}
-  _handsSlot: {fileID: 1548389235}
   _presenter: {fileID: 1426477215}
   _dragSlotPresenter: {fileID: 1052059941}
+  _handsSlotRectTransform: {fileID: 1548389230}
+  _handsSlot: {fileID: 1548389235}
 --- !u!222 &1426477218
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6433,12 +6546,12 @@ MonoBehaviour:
   _mainCamera: {fileID: 1631279094}
   _inventoryRectTransform: {fileID: 1340597249}
   _rectTransform: {fileID: 1472003655}
-  _handsSlotRectTransform: {fileID: 1548389230}
   _inventory: {fileID: 1340597250}
   _slot: {fileID: 1472003659}
-  _handsSlot: {fileID: 1548389235}
   _presenter: {fileID: 1472003658}
   _dragSlotPresenter: {fileID: 1052059941}
+  _handsSlotRectTransform: {fileID: 1548389230}
+  _handsSlot: {fileID: 1548389235}
 --- !u!222 &1472003661
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6650,12 +6763,12 @@ MonoBehaviour:
   _mainCamera: {fileID: 1631279094}
   _inventoryRectTransform: {fileID: 1340597249}
   _rectTransform: {fileID: 1497020384}
-  _handsSlotRectTransform: {fileID: 1548389230}
   _inventory: {fileID: 1340597250}
   _slot: {fileID: 1497020388}
-  _handsSlot: {fileID: 1548389235}
   _presenter: {fileID: 1497020387}
   _dragSlotPresenter: {fileID: 1052059941}
+  _handsSlotRectTransform: {fileID: 1548389230}
+  _handsSlot: {fileID: 1548389235}
 --- !u!222 &1497020390
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7014,14 +7127,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 702143158}
+    - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
+        type: 3}
       propertyPath: _infoPanel
       value: 
       objectReference: {fileID: 732007636}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
-      propertyPath: _player
+      propertyPath: _notifier
       value: 
-      objectReference: {fileID: 702143158}
+      objectReference: {fileID: 217911524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff19962351d3cd4bb25b4abc820704f, type: 3}
 --- !u!4 &1555525758 stripped
@@ -7235,14 +7353,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 702143158}
+    - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
+        type: 3}
       propertyPath: _infoPanel
       value: 
       objectReference: {fileID: 732007636}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
-      propertyPath: _player
+      propertyPath: _notifier
       value: 
-      objectReference: {fileID: 702143158}
+      objectReference: {fileID: 217911524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff19962351d3cd4bb25b4abc820704f, type: 3}
 --- !u!4 &1603134851 stripped
@@ -7397,12 +7520,12 @@ MonoBehaviour:
   _mainCamera: {fileID: 1631279094}
   _inventoryRectTransform: {fileID: 1340597249}
   _rectTransform: {fileID: 1631632040}
-  _handsSlotRectTransform: {fileID: 1548389230}
   _inventory: {fileID: 1340597250}
   _slot: {fileID: 1631632044}
-  _handsSlot: {fileID: 1548389235}
   _presenter: {fileID: 1631632043}
   _dragSlotPresenter: {fileID: 1052059941}
+  _handsSlotRectTransform: {fileID: 1548389230}
+  _handsSlot: {fileID: 1548389235}
 --- !u!222 &1631632046
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7480,14 +7603,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 702143158}
+    - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
+        type: 3}
       propertyPath: _infoPanel
       value: 
       objectReference: {fileID: 732007636}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
-      propertyPath: _player
+      propertyPath: _notifier
       value: 
-      objectReference: {fileID: 702143158}
+      objectReference: {fileID: 217911524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff19962351d3cd4bb25b4abc820704f, type: 3}
 --- !u!4 &1661152250 stripped
@@ -7636,12 +7764,12 @@ MonoBehaviour:
   _mainCamera: {fileID: 1631279094}
   _inventoryRectTransform: {fileID: 1340597249}
   _rectTransform: {fileID: 1670771032}
-  _handsSlotRectTransform: {fileID: 1548389230}
   _inventory: {fileID: 1340597250}
   _slot: {fileID: 1670771036}
-  _handsSlot: {fileID: 1548389235}
   _presenter: {fileID: 1670771035}
   _dragSlotPresenter: {fileID: 1052059941}
+  _handsSlotRectTransform: {fileID: 1548389230}
+  _handsSlot: {fileID: 1548389235}
 --- !u!222 &1670771038
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8026,12 +8154,12 @@ MonoBehaviour:
   _mainCamera: {fileID: 1631279094}
   _inventoryRectTransform: {fileID: 1340597249}
   _rectTransform: {fileID: 1737072537}
-  _handsSlotRectTransform: {fileID: 1548389230}
   _inventory: {fileID: 1340597250}
   _slot: {fileID: 1737072541}
-  _handsSlot: {fileID: 1548389235}
   _presenter: {fileID: 1737072540}
   _dragSlotPresenter: {fileID: 1052059941}
+  _handsSlotRectTransform: {fileID: 1548389230}
+  _handsSlot: {fileID: 1548389235}
 --- !u!222 &1737072543
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8209,14 +8337,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 702143158}
+    - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
+        type: 3}
       propertyPath: _infoPanel
       value: 
       objectReference: {fileID: 732007636}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
-      propertyPath: _player
+      propertyPath: _notifier
       value: 
-      objectReference: {fileID: 702143158}
+      objectReference: {fileID: 217911524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff19962351d3cd4bb25b4abc820704f, type: 3}
 --- !u!4 &1749704994 stripped
@@ -8534,12 +8667,12 @@ MonoBehaviour:
   _mainCamera: {fileID: 1631279094}
   _inventoryRectTransform: {fileID: 1340597249}
   _rectTransform: {fileID: 1812558611}
-  _handsSlotRectTransform: {fileID: 1548389230}
   _inventory: {fileID: 1340597250}
   _slot: {fileID: 1812558615}
-  _handsSlot: {fileID: 1548389235}
   _presenter: {fileID: 1812558614}
   _dragSlotPresenter: {fileID: 1052059941}
+  _handsSlotRectTransform: {fileID: 1548389230}
+  _handsSlot: {fileID: 1548389235}
 --- !u!222 &1812558617
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8793,14 +8926,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 702143158}
+    - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
+        type: 3}
       propertyPath: _infoPanel
       value: 
       objectReference: {fileID: 732007636}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
-      propertyPath: _player
+      propertyPath: _notifier
       value: 
-      objectReference: {fileID: 702143158}
+      objectReference: {fileID: 217911524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff19962351d3cd4bb25b4abc820704f, type: 3}
 --- !u!4 &1849697586 stripped
@@ -8966,14 +9104,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 702143158}
+    - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
+        type: 3}
       propertyPath: _infoPanel
       value: 
       objectReference: {fileID: 732007636}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
-      propertyPath: _player
+      propertyPath: _notifier
       value: 
-      objectReference: {fileID: 702143158}
+      objectReference: {fileID: 217911524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff19962351d3cd4bb25b4abc820704f, type: 3}
 --- !u!4 &1937502150 stripped
@@ -9051,14 +9194,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 702143158}
+    - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
+        type: 3}
       propertyPath: _infoPanel
       value: 
       objectReference: {fileID: 732007636}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
-      propertyPath: _player
+      propertyPath: _notifier
       value: 
-      objectReference: {fileID: 702143158}
+      objectReference: {fileID: 217911524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff19962351d3cd4bb25b4abc820704f, type: 3}
 --- !u!4 &1943500233 stripped
@@ -9248,14 +9396,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 702143158}
+    - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
+        type: 3}
       propertyPath: _infoPanel
       value: 
       objectReference: {fileID: 732007636}
     - target: {fileID: 8224803679938867247, guid: 5ff19962351d3cd4bb25b4abc820704f,
         type: 3}
-      propertyPath: _player
+      propertyPath: _notifier
       value: 
-      objectReference: {fileID: 702143158}
+      objectReference: {fileID: 217911524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff19962351d3cd4bb25b4abc820704f, type: 3}
 --- !u!4 &2030881981 stripped
@@ -9328,7 +9481,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2077150825
 GameObject:
@@ -9695,7 +9848,7 @@ PrefabInstance:
     - target: {fileID: 3063806134951527928, guid: 536b6b91d9c78814a8ec2b1013a11fca,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3063806134951527928, guid: 536b6b91d9c78814a8ec2b1013a11fca,
         type: 3}
@@ -9712,7 +9865,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3063806134951527929, guid: 536b6b91d9c78814a8ec2b1013a11fca,
+    - target: {fileID: 3063806134951527930, guid: 536b6b91d9c78814a8ec2b1013a11fca,
         type: 3}
       propertyPath: _inventory
       value: 
@@ -9722,11 +9875,6 @@ PrefabInstance:
       propertyPath: _playerPanel
       value: 
       objectReference: {fileID: 1162579368}
-    - target: {fileID: 3063806135098328614, guid: 536b6b91d9c78814a8ec2b1013a11fca,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 536b6b91d9c78814a8ec2b1013a11fca, type: 3}
 --- !u!114 &3063806134454483251 stripped
@@ -9907,11 +10055,6 @@ PrefabInstance:
       propertyPath: _notifier
       value: 
       objectReference: {fileID: 217911524}
-    - target: {fileID: 3023560366087361555, guid: 9496855aef162da469406d063b08b8c9,
-        type: 3}
-      propertyPath: _inventory
-      value: 
-      objectReference: {fileID: 1340597250}
     - target: {fileID: 4004014292984479470, guid: 9496855aef162da469406d063b08b8c9,
         type: 3}
       propertyPath: _notifier
@@ -10169,11 +10312,6 @@ PrefabInstance:
       propertyPath: _notifier
       value: 
       objectReference: {fileID: 217911524}
-    - target: {fileID: 2700953982079914130, guid: 09826b7d9bc26574c88d020b3f925eca,
-        type: 3}
-      propertyPath: _inventory
-      value: 
-      objectReference: {fileID: 1340597250}
     - target: {fileID: 4260249928623176303, guid: 09826b7d9bc26574c88d020b3f925eca,
         type: 3}
       propertyPath: _notifier
@@ -10274,11 +10412,6 @@ PrefabInstance:
       propertyPath: _notifier
       value: 
       objectReference: {fileID: 217911524}
-    - target: {fileID: 8966440250885089536, guid: eff9b4b7ce7bf16449c2d38c7ae358c3,
-        type: 3}
-      propertyPath: _inventory
-      value: 
-      objectReference: {fileID: 1340597250}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eff9b4b7ce7bf16449c2d38c7ae358c3, type: 3}
 --- !u!4 &6405911551965320232 stripped

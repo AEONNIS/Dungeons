@@ -21,39 +21,43 @@ MonoBehaviour:
     \u0445\u043E\u0442\u044C-\u043A\u0443\u0434\u0430."
   _strengthStates:
   - _strengthRange:
-      _minValue: 85
       _maxValue: 100
+      _minValue: 85
     _name: NoVisibleDamage
     _sprite: {fileID: 21300004, guid: 4a7bfbd06638d8e4c9973be5721e51b3, type: 3}
     _bodyType: 2
-    _layer:
+    _layerOLD:
       serializedVersion: 2
       m_Bits: 256
+    _layer: 8
   - _strengthRange:
-      _minValue: 35
       _maxValue: 85
+      _minValue: 35
     _name: DamageStatic
     _sprite: {fileID: 21300038, guid: 4a7bfbd06638d8e4c9973be5721e51b3, type: 3}
     _bodyType: 2
-    _layer:
+    _layerOLD:
       serializedVersion: 2
       m_Bits: 256
+    _layer: 8
   - _strengthRange:
-      _minValue: 0
       _maxValue: 35
+      _minValue: 0
     _name: DamageDinamic
     _sprite: {fileID: 21300038, guid: 4a7bfbd06638d8e4c9973be5721e51b3, type: 3}
     _bodyType: 0
-    _layer:
+    _layerOLD:
       serializedVersion: 2
       m_Bits: 256
+    _layer: 8
   - _strengthRange:
-      _minValue: -1
       _maxValue: 0
+      _minValue: -1
     _name: Destroyed
     _sprite: {fileID: 21300046, guid: 4a7bfbd06638d8e4c9973be5721e51b3, type: 3}
     _bodyType: 0
-    _layer:
+    _layerOLD:
       serializedVersion: 2
       m_Bits: 2048
+    _layer: 11
   _shutdownTimeWhenDestroyed: 5
