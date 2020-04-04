@@ -1,7 +1,8 @@
 ﻿using Game.Model;
 using Game.Model.PlayerCharacter;
 using Game.Presentation;
-using Game.UI;
+using Game.Presentation.UI;
+using Game.Presentation.UI.NotificationSystem;
 using UnityEngine;
 
 namespace Game.Control
@@ -23,13 +24,13 @@ namespace Game.Control
 
         private protected void MouseEntered()
         {
-            _backlighter?.PointerHovering(PlayerIsClose());
+            _backlighter?.Backlight(PlayerIsClose());
             _infoPanel.Present(InfoElement);
         }
 
         private protected void MouseExited()
         {
-            _backlighter?.ResetBacklight();
+            _backlighter?.ResetSmoothly();
             _infoPanel.FadeOut();
         }
 

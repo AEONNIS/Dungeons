@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Game.Model
+namespace Game.Model.Tiles
 {
     public partial class Environment : MonoBehaviour, IInfoElement
     {

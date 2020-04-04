@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Game.Model
+namespace Game.Model.Tiles
 {
     [CreateAssetMenu(fileName = "Environment", menuName = "Model/Environment")]
     public class EnvironmentBase : ScriptableObject

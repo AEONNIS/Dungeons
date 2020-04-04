@@ -1,7 +1,8 @@
 ﻿using Game.Control.PlayerCharacter;
+using Game.Infrastructure;
 using Game.Model.InventorySystem;
 using Game.Presentation.PlayerCharacter;
-using Game.UI;
+using Game.Presentation.UI;
 using UnityEngine;
 
 namespace Game.Model.PlayerCharacter

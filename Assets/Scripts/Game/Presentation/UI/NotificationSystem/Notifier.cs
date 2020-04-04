@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.UI
+namespace Game.Presentation.UI.NotificationSystem
 {
     public class Notifier : MonoBehaviour
     {

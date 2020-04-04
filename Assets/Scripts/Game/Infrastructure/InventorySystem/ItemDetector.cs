@@ -1,4 +1,4 @@
-﻿using Game.Model;
+﻿using Game.Model.Items;
 using System.Collections.Generic;
 using UnityEngine;
 

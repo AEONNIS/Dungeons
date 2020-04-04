@@ -20,6 +20,8 @@ namespace Game.Control.PlayerCharacter
 
         private HorizontalInput _horizontalInput;
 
+        private enum HorizontalInput { Left = -1, None = 0, Right = 1 }
+
         #region Unity
         private void FixedUpdate()
         {
@@ -84,7 +86,5 @@ namespace Game.Control.PlayerCharacter
             else
                 _player.TryMoveForward(true);
         }
-
-        private enum HorizontalInput { Left = -1, None = 0, Right = 1 }
     }
 }

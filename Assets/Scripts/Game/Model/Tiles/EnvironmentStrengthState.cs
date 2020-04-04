@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace Game.Model
+namespace Game.Model.Tiles
 {
     [Serializable]
     public struct EnvironmentStrengthState

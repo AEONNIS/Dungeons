@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game.UI
+namespace Game.Presentation.UI.NotificationSystem
 {
     public class NotifierPositioner : MonoBehaviour
     {

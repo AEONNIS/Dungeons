@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Game.UI.InventorySystem
+namespace Game.Presentation.UI.InventorySystem
 {
     public class InventorySlotMouseController : SlotMouseController, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler,
                                                 IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game.Infrastructure.Presentation;
+using System;
 using UnityEngine;
 
 namespace Game.Presentation
@@ -9,69 +10,54 @@ namespace Game.Presentation
         [SerializeField] private SmoothColorChanger _colorChanger;
         [Header("Colors:")]
         [SerializeField] private Color _defaultColor = Color.white;
-        [SerializeField] private Color _playerCloseColor = new Color(0.0f, 1.0f, 0.53f);
-        [SerializeField] private Color _playerFarColor = new Color(1.0f, 0.723f, 0.0f);
-        [SerializeField] private Color _dealingDamageColor = new Color(1.0f, 0.0f, 0.0f);
+        [SerializeField] private Color _primaryBacklightColor = new Color(0.0f, 1.0f, 0.55f);
+        [SerializeField] private Color _secondaryBacklightColor = new Color(1.0f, 0.725f, 0.0f);
+        [SerializeField] private Color _flashingColor = new Color(1.0f, 0.0f, 0.0f);
         [Header("Durations:")]
-        [SerializeField] private float _colorChangeDuration = 0.45f;
-        [SerializeField] private float _colorBlinkingDuration = 0.15f;
-        [SerializeField] private int _blinksCount = 3;
+        [SerializeField] private float _colorChangeDuration = 0.5f;
+        [SerializeField] private float _flashingDuration = 0.15f;
+        [SerializeField] private int _flashesNumber = 1;
 
-        private Action _blinks;
+        private Color _currentEndingColor;
 
-        #region Unity
-        private void Awake()
+        public void Backlight(bool primaryColor)
         {
-            _blinks = BlinksColorOnDealingDamage(_blinksCount);
-        }
-        #endregion
-
-        public void PointerHovering(bool playerIsClose)
-        {
-            (playerIsClose ? (Action)PlayerIsClose : PlayerIsFar)();
+            _currentEndingColor = primaryColor ? _primaryBacklightColor : _secondaryBacklightColor;
+            _colorChanger.Begin(_renderer, _currentEndingColor, _colorChangeDuration);
         }
 
-        public void ResetBacklight()
+        public void ResetSmoothly()
         {
-            _colorChanger.StartColorChange(_renderer, _defaultColor, _colorChangeDuration);
+            _colorChanger.Begin(_renderer, _currentEndingColor = _defaultColor, _colorChangeDuration);
         }
 
-        public void ResetBacklightImmediately()
+        public void ResetImmediately()
         {
-            _renderer.color = _defaultColor;
+            _renderer.color = _currentEndingColor = _defaultColor;
         }
 
-        public void BlinksColorOnDealingDamage()
+        public void ToFlash()
         {
-            _blinks.Invoke();
+            ToFlash(_flashesNumber, _currentEndingColor);
         }
 
-        private void PlayerIsClose()
+        private void ToFlash(int flashesNumber, Color endingColor)
         {
-            _colorChanger.StartColorChange(_renderer, _playerCloseColor, _colorChangeDuration);
+            Action allFlash = () => ToFlashOnce(_flashingColor, endingColor);
+
+            for (int i = 0; i < flashesNumber - 1; i++)
+            {
+                var flash = allFlash;
+                allFlash = () => ToFlashOnce(_flashingColor, endingColor, flash);
+            }
+
+            allFlash.Invoke();
         }
 
-        private void PlayerIsFar()
+        private void ToFlashOnce(Color flashingColor, Color endingColor, Action onEnd = null)
         {
-            _colorChanger.StartColorChange(_renderer, _playerFarColor, _colorChangeDuration);
-        }
-
-        private Action BlinksColorOnDealingDamage(int blinksCount)
-        {
-            Action blinks = () => BlinkColorOnce(null);
-
-            for (int i = 0; i < blinksCount - 1; i++)
-                blinks = () => BlinkColorOnce(blinks);
-
-            return blinks;
-        }
-
-        private void BlinkColorOnce(Action onEnd = null)
-        {
-            _colorChanger.StartColorChange(_renderer, _dealingDamageColor, _colorBlinkingDuration * 0.5f, () =>
-              {
-                  _colorChanger.StartColorChange(_renderer, _defaultColor, _colorBlinkingDuration * 0.5f, onEnd);
-              });
+            _colorChanger.Begin(_renderer, flashingColor, _flashingDuration * 0.5f,
+                                () => _colorChanger.Begin(_renderer, endingColor, _flashingDuration * 0.5f, onEnd));
         }
     }
 }

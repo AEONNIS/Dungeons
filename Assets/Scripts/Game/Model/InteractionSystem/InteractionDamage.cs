@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 
-namespace Game.Model
+namespace Game.Model.InteractionSystem
 {
     [Serializable]
     public class InteractionDamage

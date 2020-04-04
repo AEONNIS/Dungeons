@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Game.UI.InventorySystem
+namespace Game.Presentation.UI.InventorySystem
 {
     public class SlotMouseController : MonoBehaviour
     {

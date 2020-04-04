@@ -1,4 +1,5 @@
-﻿using Game.UI.InventorySystem;
+﻿using Game.Model.Items;
+using Game.Presentation.UI.InventorySystem;
 using UnityEngine;
 
 namespace Game.Model.InventorySystem

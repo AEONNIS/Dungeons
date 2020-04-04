@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System;
+using Game.Model.Tiles;
+using Game.Model.Items;
 
-namespace Game.Model
+namespace Game.Model.InteractionSystem
 {
     [Serializable]
     public class InteractionCouple

@@ -1,8 +1,9 @@
-﻿using Game.Control;
-using Game.Model;
+﻿using Game.Model;
+using Game.Model.InteractionSystem;
+using Game.Model.Tiles;
 using UnityEngine;
 
-namespace Game
+namespace Game.Control
 {
     public class EnvironmentMouseController : ElementMouseController
     {
@@ -39,9 +40,14 @@ namespace Game
             if (PlayerIsClose())
             {
                 if (_player.Inventory.InHandsItem != null)
+                {
                     _interaction.ApplyDamageToEnvironmentAndItemInHands(_environment);
+                    _backlighter.ToFlash();
+                }
                 else
+                {
                     _notifier.ShowMessage(_notItemForInteractionMessage, InfoElement.Sprite);
+                }
             }
             else
             {

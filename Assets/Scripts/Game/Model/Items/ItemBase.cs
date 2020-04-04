@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Game.Model
+namespace Game.Model.Items
 {
     [CreateAssetMenu(fileName = "Item", menuName = "Model/Item")]
     public class ItemBase : ScriptableObject

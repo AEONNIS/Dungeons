@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Game
+namespace Game.Infrastructure
 {
     public class Timer : MonoBehaviour
     {

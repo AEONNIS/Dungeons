@@ -1,8 +1,8 @@
-﻿using Game.Model;
+﻿using Game.Model.Items;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game.UI.InventorySystem
+namespace Game.Presentation.UI.InventorySystem
 {
     public class SlotPresenter : MonoBehaviour
     {

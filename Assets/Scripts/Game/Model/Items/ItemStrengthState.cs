@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Game.Model
+namespace Game.Model.Items
 {
     [Serializable]
     public struct ItemStrengthState

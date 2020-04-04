@@ -1,8 +1,8 @@
-﻿using Game.Control;
-using Game.Model;
+﻿using Game.Model;
+using Game.Model.Items;
 using UnityEngine;
 
-namespace Game
+namespace Game.Control
 {
     public class ItemMouseController : ElementMouseController
     {
@@ -35,7 +35,7 @@ namespace Game
             if (PlayerIsClose())
             {
                 if (_player.Inventory.TryTakeItemInHands(_item))
-                    _backlighter.ResetBacklightImmediately();
+                    _backlighter.ResetImmediately();
             }
             else
             {

@@ -1,13 +1,14 @@
-﻿using Game.Model.PlayerCharacter;
+﻿using Game.Infrastructure.UI;
+using Game.Model.PlayerCharacter;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game.UI
+namespace Game.Presentation.UI
 {
     public class PlayerPanel : MonoBehaviour
     {
-        [SerializeField] private ColorValueBar _healthBar;
+        [SerializeField] private ImageValueBar _healthBar;
         [SerializeField] private Text _powerState;
         [TextArea(1, 2)] [SerializeField] private List<string> _powerStateNames;
 

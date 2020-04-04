@@ -1,16 +1,17 @@
-﻿using Game.Model;
+﻿using Game.Infrastructure.UI;
+using Game.Model;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game.UI
+namespace Game.Presentation.UI
 {
     public class InfoPanel : MonoBehaviour
     {
         [SerializeField] private float _fadeDuration = 0.35f;
         [SerializeField] private Image _icon;
         [SerializeField] private Text _name;
-        [SerializeField] private ColorValueBar _strengthBar;
+        [SerializeField] private ImageValueBar _strengthBar;
         [SerializeField] private Text _description;
 
         private List<Graphic> _graphicElements = new List<Graphic>();

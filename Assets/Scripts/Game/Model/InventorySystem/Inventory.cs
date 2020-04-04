@@ -1,5 +1,6 @@
 ﻿using Game.Infrastructure.InventorySysytem;
-using Game.UI.InventorySystem;
+using Game.Model.Items;
+using Game.Presentation.UI.InventorySystem;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;

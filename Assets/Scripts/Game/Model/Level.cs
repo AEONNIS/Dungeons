@@ -1,16 +1,19 @@
-﻿using Game.Model;
+﻿using Game.Model.InteractionSystem;
 using Game.Model.PlayerCharacter;
 using UnityEngine;
 
-public class Level : MonoBehaviour
+namespace Game.Model
 {
-    [SerializeField] private Player _player;
-    [SerializeField] Interaction _interaction;
-
-    #region Unity
-    private void Awake()
+    public class Level : MonoBehaviour
     {
-        _interaction.Init(_player);
+        [SerializeField] private Player _player;
+        [SerializeField] Interaction _interaction;
+
+        #region Unity
+        private void Awake()
+        {
+            _interaction.Init(_player);
+        }
+        #endregion
     }
-    #endregion
 }

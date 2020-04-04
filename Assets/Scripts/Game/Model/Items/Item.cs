@@ -1,7 +1,7 @@
-﻿using Game.UI;
+﻿using Game.Presentation.UI.NotificationSystem;
 using UnityEngine;
 
-namespace Game.Model
+namespace Game.Model.Items
 {
     public class Item : MonoBehaviour, IInfoElement
     {

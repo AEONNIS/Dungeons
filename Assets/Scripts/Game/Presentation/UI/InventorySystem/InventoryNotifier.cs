@@ -1,10 +1,11 @@
-﻿using Game.Model;
+﻿using Game.Model.Items;
+using Game.Presentation.UI.NotificationSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Game.UI.InventorySystem
+namespace Game.Presentation.UI.InventorySystem
 {
     public class InventoryNotifier : MonoBehaviour
     {

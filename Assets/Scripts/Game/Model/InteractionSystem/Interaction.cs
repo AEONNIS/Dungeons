@@ -1,7 +1,8 @@
-﻿using Game.Model.PlayerCharacter;
+﻿using Game.Model.Tiles;
+using Game.Model.PlayerCharacter;
 using UnityEngine;
 
-namespace Game.Model
+namespace Game.Model.InteractionSystem
 {
     [CreateAssetMenu(fileName = "Interaction", menuName = "Model/Interaction")]
     public class Interaction : ScriptableObject

@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using Game.Model.Tiles;
+using Game.Model.Items;
 
-namespace Game.Model
+namespace Game.Model.InteractionSystem
 {
     [CreateAssetMenu(fileName = "DamagesTemplate", menuName = "Model/DamagesTemplate")]
     public class DamagesTemplate : ScriptableObject
