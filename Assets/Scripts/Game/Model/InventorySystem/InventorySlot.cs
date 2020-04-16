@@ -17,7 +17,7 @@ namespace Game.Model.InventorySystem
             if (_item == null && item != null)
             {
                 item.PlaceIn(ItemPlace.Inventory);
-                _presenter.PresentItem(_item = item);
+                _presenter.Present(_item = item);
                 return true;
             }
 
@@ -30,7 +30,7 @@ namespace Game.Model.InventorySystem
             {
                 Item item = _item;
                 item.PlaceIn(ItemPlace.Scene);
-                _presenter.PresentItem(_item = null);
+                _presenter.Present(_item = null);
                 return item;
             }
 

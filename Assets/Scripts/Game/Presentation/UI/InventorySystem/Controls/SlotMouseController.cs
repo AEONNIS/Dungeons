@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Game.Presentation.UI.InventorySystem
+namespace Game.Presentation.UI.InventorySystem.Controls
 {
     public class SlotMouseController : MonoBehaviour
     {
@@ -12,7 +12,7 @@ namespace Game.Presentation.UI.InventorySystem
         [SerializeField] private protected Inventory _inventory;
         [SerializeField] private protected InventorySlot _slot;
         [SerializeField] private protected SlotPresenter _presenter;
-        [SerializeField] private DragSlotPresenter _dragSlotPresenter;
+        [SerializeField] private protected DragSlotPresenter _dragSlotPresenter;
 
         private bool _dragging;
 

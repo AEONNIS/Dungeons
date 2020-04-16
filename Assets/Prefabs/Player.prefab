@@ -504,6 +504,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectingCollider: {fileID: 3063806135098328614}
-  _itemLayers:
+  _layers:
     serializedVersion: 2
     m_Bits: 512

@@ -1,4 +1,4 @@
-﻿using Game.Infrastructure.UI;
+﻿using Game.Infrastructure.Presentation.UI;
 using Game.Model.PlayerCharacter;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +10,8 @@ namespace Game.Presentation.UI
     {
         [SerializeField] private ImageValueBar _healthBar;
         [SerializeField] private Text _powerState;
-        [TextArea(1, 2)] [SerializeField] private List<string> _powerStateNames;
+        [TextArea(1, 2)]
+        [SerializeField] private List<string> _powerStateNames;
 
         public void Present(float health, PowerState powerState)
         {
@@ -18,9 +19,9 @@ namespace Game.Presentation.UI
             PresentPowerState(powerState);
         }
 
-        public void PresentHealth(float healthValue)
+        public void PresentHealth(float health)
         {
-            _healthBar.Present(healthValue);
+            _healthBar.Present(health);
         }
 
         public void PresentPowerState(PowerState powerState)

@@ -7,38 +7,34 @@ namespace Game.Presentation.UI.InventorySystem
     public class SlotPresenter : MonoBehaviour
     {
         [SerializeField] private Image _image;
-        [SerializeField] private Sprite _emptySlotSprite;
-        [Header("Colors:")]
-        [SerializeField] private Color _defaultColor = Color.white;
-        [SerializeField] private Color _pointerEnterColor = new Color(0.45f, 1.0f, 0.63f);
-        [SerializeField] private Color _draggingColor = new Color(1.0f, 0.67f, 0.39f);
+        [SerializeField] private SlotPresenterBasis _basis;
 
-        public void PresentItem(Item item)
+        public void Present(Item item)
         {
             if (item != null)
                 Present(item.Sprite);
             else
-                Present(_emptySlotSprite);
+                Present(_basis.EmptySlotSprite);
         }
 
         public void ResetBacklight()
         {
-            Backlight(_defaultColor);
+            Backlight(_basis.Colors.Default);
         }
 
         public void PointerEnterBacklight()
         {
-            Backlight(_pointerEnterColor);
+            Backlight(_basis.Colors.PointerEnter);
         }
 
         public void DraggingBacklight()
         {
-            Backlight(_draggingColor);
+            Backlight(_basis.Colors.Dragging);
         }
 
-        private void Present(Sprite sprite)
+        private void Present(Sprite item)
         {
-            _image.sprite = sprite;
+            _image.sprite = item;
         }
 
         private void Backlight(Color color)

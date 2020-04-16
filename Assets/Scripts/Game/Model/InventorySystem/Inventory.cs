@@ -1,5 +1,6 @@
-﻿using Game.Infrastructure.InventorySysytem;
+﻿using Game.Infrastructure;
 using Game.Model.Items;
+using Game.Model.PlayerCharacter;
 using Game.Presentation.UI.InventorySystem;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,25 +10,22 @@ namespace Game.Model.InventorySystem
 {
     public class Inventory : MonoBehaviour
     {
-        [SerializeField] private Transform _playerTransform;
-        [SerializeField] private Transform _slotsContainer;
         [SerializeField] private InventorySlot _handsSlot;
         [SerializeField] private InventoryNotifier _notification;
-        [SerializeField] private ItemDetector _detector;
+        [SerializeField] private Detector _itemDetector;
+        [SerializeField] private Player _player;
 
-        private readonly List<InventorySlot> _inventorySlots = new List<InventorySlot>();
-        private List<InventorySlot> _allSlots = new List<InventorySlot>();
+        private List<InventorySlot> _inventorySlots;
+        private List<InventorySlot> _allSlots;
 
         public Item InHandsItem => _handsSlot.Item;
 
-        #region Unity
-        private void Awake()
+        public void Init(List<InventorySlot> slots)
         {
-            _slotsContainer.GetComponentsInChildren(_inventorySlots);
-            _allSlots = _inventorySlots;
+            _inventorySlots = slots;
+            _allSlots = slots;
             _allSlots.Add(_handsSlot);
         }
-        #endregion
 
         public void SwitchOpeningState()
         {
@@ -58,7 +56,7 @@ namespace Game.Model.InventorySystem
 
         public void PickUpAllItemsNearPlayer()
         {
-            List<Item> items = _detector.DetectItems();
+            List<Item> items = _itemDetector.Detect<Item>();
             List<InventorySlot> emptySlots = _inventorySlots.Where(slot => slot.Item == null).ToList();
             if (items.Count == 0 || emptySlots.Count == 0)
                 return;
@@ -93,18 +91,12 @@ namespace Game.Model.InventorySystem
             Item item = _allSlots.First(slot => slot == inventorySlot).RemoveItem();
 
             if (item != null)
-                PutItemNearPlayer(item);
+                _player.PutNear(item);
         }
 
         private InventorySlot GetFirstEmptySlot()
         {
             return _inventorySlots.FirstOrDefault(slot => slot.Item == null);
-        }
-
-        private void PutItemNearPlayer(Item item)
-        {
-            item.transform.position = _playerTransform.position;
-            item.gameObject.SetActive(true);
         }
     }
 }

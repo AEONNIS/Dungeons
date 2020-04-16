@@ -1,6 +1,7 @@
 ﻿using Game.Control.PlayerCharacter;
 using Game.Infrastructure;
 using Game.Model.InventorySystem;
+using Game.Model.Items;
 using Game.Presentation.PlayerCharacter;
 using Game.Presentation.UI;
 using UnityEngine;
@@ -83,7 +84,7 @@ namespace Game.Model.PlayerCharacter
                 _mover.JumpUp();
                 _animator.SetStates(_states);
 
-                _timer.StartTimer(_jumpStartTime, () =>
+                _timer.StartOff(_jumpStartTime, () =>
                 {
                     _states.SetJumpState();
                     _animator.SetStates(_states);
@@ -99,12 +100,18 @@ namespace Game.Model.PlayerCharacter
                 _mover.JumpForward();
                 _animator.SetStates(_states);
 
-                _timer.StartTimer(_jumpStartTime, () =>
+                _timer.StartOff(_jumpStartTime, () =>
                 {
                     _states.SetJumpMoveState(rightDirection);
                     _animator.SetStates(_states);
                 });
             }
+        }
+
+        public void PutNear(Item item)
+        {
+            item.transform.position = transform.position;
+            item.gameObject.SetActive(true);
         }
 
         private void OnPlayerFalls()

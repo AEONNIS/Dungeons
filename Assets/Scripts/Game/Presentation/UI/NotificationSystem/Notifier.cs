@@ -7,31 +7,33 @@ namespace Game.Presentation.UI.NotificationSystem
     {
         [SerializeField] private RectTransform _content;
         [SerializeField] private Message _messageTemplate;
-        [SerializeField] private int _minNumberMessagesInPool;
+        [SerializeField] private int _minMessagesInPool;
 
-        private Queue<Message> _messagePool = new Queue<Message>();
+        private readonly Queue<Message> _messagePool = new Queue<Message>();
 
+        #region Unity
         private void Awake()
         {
-            AddMessagesInPool(_minNumberMessagesInPool);
+            AddMessagesToPool(_minMessagesInPool);
         }
+        #endregion
 
-        public void ShowMessage(string messageText, Sprite messageImage = null, float displayTime = 0)
+        public void ShowMessage(string text, Sprite icon = null, float displayTime = 0)
         {
             if (_messagePool.Count == 0)
-                AddMessagesInPool(_minNumberMessagesInPool);
+                AddMessagesToPool(_minMessagesInPool);
 
             Message message = _messagePool.Dequeue();
             message.transform.SetAsFirstSibling();
-            message.Display(messageText, messageImage, displayTime);
+            message.Display(text, icon, displayTime);
         }
 
-        public void ReturnMessageInPool(Message message)
+        public void ReturnToPool(Message message)
         {
             _messagePool.Enqueue(message);
         }
 
-        private void AddMessagesInPool(int number)
+        private void AddMessagesToPool(int number)
         {
             for (int i = 0; i < number; i++)
             {

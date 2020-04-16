@@ -2,13 +2,13 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Game.Presentation.UI.InventorySystem
+namespace Game.Presentation.UI.InventorySystem.Controls
 {
     public class InventorySlotMouseController : SlotMouseController, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler,
                                                 IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
     {
-        [SerializeField] private RectTransform _handsSlotRectTransform;
-        [SerializeField] private InventorySlot _handsSlot;
+        private RectTransform _handsSlotRectTransform;
+        private InventorySlot _handsSlot;
 
         #region Unity
         public void OnPointerEnter(PointerEventData eventData)
@@ -48,6 +48,19 @@ namespace Game.Presentation.UI.InventorySystem
                 FinishDragging();
         }
         #endregion
+
+        public InventorySlot Init(Camera mainCamera, RectTransform inventoryRectTransform, Inventory inventory,
+                                  DragSlotPresenter dragSlotPresenter, RectTransform handsSlotRectTransform, InventorySlot handsSlot)
+        {
+            _mainCamera = mainCamera;
+            _inventoryRectTransform = inventoryRectTransform;
+            _inventory = inventory;
+            _dragSlotPresenter = dragSlotPresenter;
+            _handsSlotRectTransform = handsSlotRectTransform;
+            _handsSlot = handsSlot;
+
+            return _slot;
+        }
 
         private void FinishDragging()
         {

@@ -9,7 +9,7 @@ namespace Game.Infrastructure
         private Coroutine _timerRoutine;
         private float _pastTime;
 
-        public void StartTimer(float duration, Action onEnd = null)
+        public void StartOff(float duration, Action onEnd = null)
         {
             if (_timerRoutine != null)
                 StopCoroutine(_timerRoutine);
@@ -17,7 +17,7 @@ namespace Game.Infrastructure
             _timerRoutine = StartCoroutine(Run(duration, onEnd));
         }
 
-        public float StopTimer()
+        public float Stop()
         {
             if (_timerRoutine != null)
                 StopCoroutine(_timerRoutine);

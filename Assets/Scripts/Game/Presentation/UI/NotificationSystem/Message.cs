@@ -1,4 +1,5 @@
 ﻿using Game.Infrastructure;
+using Game.Infrastructure.Presentation;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,9 +7,9 @@ namespace Game.Presentation.UI.NotificationSystem
 {
     public class Message : MonoBehaviour
     {
-        [SerializeField] private RectTransform _rectTransform;
-        [SerializeField] private Image _image;
         [SerializeField] private Text _text;
+        [SerializeField] private RectTransformStretcher _textStretcher;
+        [SerializeField] private Image _icon;
         [SerializeField] private Timer _timer;
         [SerializeField] private float _defaultDisplayTime = 5.0f;
 
@@ -16,32 +17,38 @@ namespace Game.Presentation.UI.NotificationSystem
 
         public void Init(Notifier notifier)
         {
+            _textStretcher.Init();
             _notifier = notifier;
             gameObject.SetActive(false);
         }
 
-        public void Display(string messageText, Sprite messageImage = null, float displayTime = 0)
+        public void Display(string text, Sprite icon = null, float displayTime = 0)
         {
-            if (messageImage == null)
+            _text.text = text;
+            Set(icon);
+            gameObject.SetActive(true);
+            _timer.StartOff(displayTime > 0 ? displayTime : _defaultDisplayTime, OnEndMessageDisplay);
+        }
+
+        private void Set(Sprite icon)
+        {
+            if (icon != null)
             {
-                _image.gameObject.SetActive(false);
+                _icon.sprite = icon;
+                _icon.gameObject.SetActive(true);
+                _textStretcher.StretchToInitialRect();
             }
             else
             {
-                _image.sprite = messageImage;
-                _image.gameObject.SetActive(true);
+                _icon.gameObject.SetActive(false);
+                _textStretcher.StretchToBasis();
             }
-
-            displayTime = displayTime <= 0 ? _defaultDisplayTime : displayTime;
-            _text.text = messageText;
-            gameObject.SetActive(true);
-            _timer.StartTimer(displayTime, OnEndMessageDisplay);
         }
 
         private void OnEndMessageDisplay()
         {
+            _notifier.ReturnToPool(this);
             gameObject.SetActive(false);
-            _notifier.ReturnMessageInPool(this);
         }
     }
 }
