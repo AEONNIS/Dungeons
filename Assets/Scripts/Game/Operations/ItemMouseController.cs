@@ -34,7 +34,7 @@ namespace Game.Control
         {
             if (PlayerIsClose())
             {
-                if (_player.Inventory.TryTakeItemInHands(_item))
+                if (_player.Inventory.TryToTakeInHands(_item))
                     _backlighter.ResetImmediately();
             }
             else

@@ -39,7 +39,7 @@ namespace Game.Control.PlayerCharacter
                 _player.SwitchPowerState();
 
             if (AnyKeyFrom(_inventoryKeys, Input.GetKeyDown))
-                _player.Inventory.SwitchOpeningState();
+                _player.Inventory.SwitchState();
 
             if (AnyKeyFrom(_pickUpItemsKeys, Input.GetKeyDown))
                 _player.Inventory.PickUpAllItemsNearPlayer();

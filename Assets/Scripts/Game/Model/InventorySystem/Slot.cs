@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Model.InventorySystem
 {
-    public class InventorySlot : MonoBehaviour
+    public class Slot : MonoBehaviour
     {
         [SerializeField] private SlotPresenter _presenter;
 
@@ -12,7 +12,7 @@ namespace Game.Model.InventorySystem
 
         public Item Item => _item;
 
-        public bool TrySetItem(Item item)
+        public bool TrySet(Item item)
         {
             if (_item == null && item != null)
             {
@@ -24,12 +24,12 @@ namespace Game.Model.InventorySystem
             return false;
         }
 
-        public Item RemoveItem()
+        public Item PullOutItem()
         {
             if (_item != null)
             {
                 Item item = _item;
-                item.PlaceIn(ItemPlace.Scene);
+                _item.PlaceIn(ItemPlace.Scene);
                 _presenter.Present(_item = null);
                 return item;
             }

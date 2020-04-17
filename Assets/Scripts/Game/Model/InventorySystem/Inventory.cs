@@ -10,38 +10,39 @@ namespace Game.Model.InventorySystem
 {
     public class Inventory : MonoBehaviour
     {
-        [SerializeField] private InventorySlot _handsSlot;
+        [SerializeField] private Slot _handsSlot;
+        [SerializeField] private InventoryPresenter _presenter;
         [SerializeField] private InventoryNotifier _notification;
         [SerializeField] private Detector _itemDetector;
         [SerializeField] private Player _player;
 
-        private List<InventorySlot> _inventorySlots;
-        private List<InventorySlot> _allSlots;
+        private List<Slot> _inventorySlots;
+        private List<Slot> _allSlots;
 
         public Item InHandsItem => _handsSlot.Item;
 
-        public void Init(List<InventorySlot> slots)
+        public void Init(List<Slot> slots)
         {
             _inventorySlots = slots;
             _allSlots = slots;
             _allSlots.Add(_handsSlot);
         }
 
-        public void SwitchOpeningState()
+        public void SwitchState()
         {
-            gameObject.SetActive(!gameObject.activeSelf);
+            _presenter.SwitchState();
         }
 
-        public bool TryTakeItemInHands(Item item)
+        public bool TryToTakeInHands(Item item)
         {
-            if (_handsSlot.TrySetItem(item) == false)
+            if (_handsSlot.TrySet(item) == false)
             {
-                InventorySlot slot = GetFirstEmptySlot();
+                Slot slot = GetFirstEmptySlot();
 
                 if (slot != null)
                 {
-                    slot.TrySetItem(_handsSlot.RemoveItem());
-                    _handsSlot.TrySetItem(item);
+                    slot.TrySet(_handsSlot.PullOutItem());
+                    _handsSlot.TrySet(item);
                 }
                 else
                 {
@@ -57,12 +58,12 @@ namespace Game.Model.InventorySystem
         public void PickUpAllItemsNearPlayer()
         {
             List<Item> items = _itemDetector.Detect<Item>();
-            List<InventorySlot> emptySlots = _inventorySlots.Where(slot => slot.Item == null).ToList();
+            List<Slot> emptySlots = _inventorySlots.Where(slot => slot.Item == null).ToList();
             if (items.Count == 0 || emptySlots.Count == 0)
                 return;
 
             for (int i = 0, s = 0; i < items.Count && s < emptySlots.Count; i++, s++)
-                emptySlots[s].TrySetItem(items[i]);
+                emptySlots[s].TrySet(items[i]);
 
             ShowNotifications(items.Count, emptySlots.Count);
         }
@@ -76,25 +77,25 @@ namespace Game.Model.InventorySystem
                 _notification.NotFitIntoInventoryItemsNumberShow(notPickedUpItems);
         }
 
-        public void SwapItemsInSlots(InventorySlot slotA, InventorySlot slotB)
+        public void SwapItemsInSlots(Slot slotA, Slot slotB)
         {
             if (slotA.Item != null || slotB.Item != null)
             {
-                Item itemA = slotA.RemoveItem();
-                slotA.TrySetItem(slotB.RemoveItem());
-                slotB.TrySetItem(itemA);
+                Item itemA = slotA.PullOutItem();
+                slotA.TrySet(slotB.PullOutItem());
+                slotB.TrySet(itemA);
             }
         }
 
-        public void ThrowItemFromSlot(InventorySlot inventorySlot)
+        public void PullOutItemFrom(Slot slot)
         {
-            Item item = _allSlots.First(slot => slot == inventorySlot).RemoveItem();
+            Item item = _allSlots.First(_slot => _slot == slot).PullOutItem();
 
             if (item != null)
                 _player.PutNear(item);
         }
 
-        private InventorySlot GetFirstEmptySlot()
+        private Slot GetFirstEmptySlot()
         {
             return _inventorySlots.FirstOrDefault(slot => slot.Item == null);
         }

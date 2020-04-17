@@ -11,7 +11,7 @@ namespace Game.Presentation.UI.InventorySystem
         [SerializeField] private RectTransform _inventoryRectTransform;
         [SerializeField] private Inventory _inventory;
         [SerializeField] private RectTransform _handsSlotRectTransform;
-        [SerializeField] private InventorySlot _handsSlot;
+        [SerializeField] private Slot _handsSlot;
         [SerializeField] private DragSlotPresenter _dragSlotPresenter;
         [SerializeField] private int _slotsNumber = 16;
         [SerializeField] private InventorySlotMouseController _slotTemplate;
@@ -24,9 +24,9 @@ namespace Game.Presentation.UI.InventorySystem
         }
         #endregion
 
-        private List<InventorySlot> CreateSlots()
+        private List<Slot> CreateSlots()
         {
-            List<InventorySlot> slots = new List<InventorySlot>(_slotsNumber);
+            List<Slot> slots = new List<Slot>(_slotsNumber);
 
             for (int i = 0; i < _slotsNumber; i++)
             {

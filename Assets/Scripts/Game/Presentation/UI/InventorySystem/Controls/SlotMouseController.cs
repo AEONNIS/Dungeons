@@ -10,7 +10,7 @@ namespace Game.Presentation.UI.InventorySystem.Controls
         [SerializeField] private protected RectTransform _inventoryRectTransform;
         [SerializeField] private protected RectTransform _rectTransform;
         [SerializeField] private protected Inventory _inventory;
-        [SerializeField] private protected InventorySlot _slot;
+        [SerializeField] private protected Slot _slot;
         [SerializeField] private protected SlotPresenter _presenter;
         [SerializeField] private protected DragSlotPresenter _dragSlotPresenter;
 
@@ -46,7 +46,7 @@ namespace Game.Presentation.UI.InventorySystem.Controls
 
         private protected void Dropped(PointerEventData eventData)
         {
-            if (eventData.pointerDrag.TryGetComponent(out InventorySlot dragSlot) && dragSlot.Item != null)
+            if (eventData.pointerDrag.TryGetComponent(out Slot dragSlot) && dragSlot.Item != null)
                 _inventory.SwapItemsInSlots(dragSlot, _slot);
         }
 

@@ -8,7 +8,7 @@ namespace Game.Presentation.UI.InventorySystem.Controls
                                                 IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
     {
         private RectTransform _handsSlotRectTransform;
-        private InventorySlot _handsSlot;
+        private Slot _handsSlot;
 
         #region Unity
         public void OnPointerEnter(PointerEventData eventData)
@@ -49,8 +49,8 @@ namespace Game.Presentation.UI.InventorySystem.Controls
         }
         #endregion
 
-        public InventorySlot Init(Camera mainCamera, RectTransform inventoryRectTransform, Inventory inventory,
-                                  DragSlotPresenter dragSlotPresenter, RectTransform handsSlotRectTransform, InventorySlot handsSlot)
+        public Slot Init(Camera mainCamera, RectTransform inventoryRectTransform, Inventory inventory,
+                                  DragSlotPresenter dragSlotPresenter, RectTransform handsSlotRectTransform, Slot handsSlot)
         {
             _mainCamera = mainCamera;
             _inventoryRectTransform = inventoryRectTransform;
@@ -66,7 +66,7 @@ namespace Game.Presentation.UI.InventorySystem.Controls
         {
             if (RectTransformUtility.RectangleContainsScreenPoint(_inventoryRectTransform, Input.mousePosition, _mainCamera) == false &&
                 RectTransformUtility.RectangleContainsScreenPoint(_handsSlotRectTransform, Input.mousePosition, _mainCamera) == false)
-                _inventory.ThrowItemFromSlot(_slot);
+                _inventory.PullOutItemFrom(_slot);
             else if (RectTransformUtility.RectangleContainsScreenPoint(_rectTransform, Input.mousePosition, _mainCamera))
                 _presenter.PointerEnterBacklight();
         }

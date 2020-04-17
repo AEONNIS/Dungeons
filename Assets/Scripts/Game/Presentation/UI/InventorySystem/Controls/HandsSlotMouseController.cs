@@ -44,7 +44,7 @@ namespace Game.Presentation.UI.InventorySystem.Controls
             if (RectTransformUtility.RectangleContainsScreenPoint(_rectTransform, Input.mousePosition, _mainCamera))
                 _presenter.PointerEnterBacklight();
             else if (RectTransformUtility.RectangleContainsScreenPoint(_inventoryRectTransform, Input.mousePosition, _mainCamera) == false)
-                _inventory.ThrowItemFromSlot(_slot);
+                _inventory.PullOutItemFrom(_slot);
         }
     }
 }
