@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c8cf4e3550cfae4784eb330553a84ee, type: 3}
+  m_Name: DamagesTemplate
+  m_EditorClassIdentifier: 
+  _damages:
+  - _interactionCouple:
+      _itemType: 0
+      _environmentType: 1
+    _damage:
+      _item: 1.9
+      _environment: 10
+  - _interactionCouple:
+      _itemType: 0
+      _environmentType: 2
+    _damage:
+      _item: 2.2
+      _environment: 7
+  - _interactionCouple:
+      _itemType: 0
+      _environmentType: 3
+    _damage:
+      _item: 0.5
+      _environment: 14
+  - _interactionCouple:
+      _itemType: 0
+      _environmentType: 4
+    _damage:
+      _item: 0.8
+      _environment: 30
+  - _interactionCouple:
+      _itemType: 0
+      _environmentType: 5
+    _damage:
+      _item: 0.7
+      _environment: 35
+  - _interactionCouple:
+      _itemType: 1
+      _environmentType: 1
+    _damage:
+      _item: 1.5
+      _environment: 35
+  - _interactionCouple:
+      _itemType: 1
+      _environmentType: 2
+    _damage:
+      _item: 1.8
+      _environment: 25
+  - _interactionCouple:
+      _itemType: 1
+      _environmentType: 3
+    _damage:
+      _item: 0.5
+      _environment: 10
+  - _interactionCouple:
+      _itemType: 1
+      _environmentType: 4
+    _damage:
+      _item: 0.7
+      _environment: 50
+  - _interactionCouple:
+      _itemType: 1
+      _environmentType: 5
+    _damage:
+      _item: 0.5
+      _environment: 10
+  - _interactionCouple:
+      _itemType: 2
+      _environmentType: 1
+    _damage:
+      _item: 2
+      _environment: 5
+  - _interactionCouple:
+      _itemType: 2
+      _environmentType: 2
+    _damage:
+      _item: 2.3
+      _environment: 4
+  - _interactionCouple:
+      _itemType: 2
+      _environmentType: 3
+    _damage:
+      _item: 0.5
+      _environment: 50
+  - _interactionCouple:
+      _itemType: 2
+      _environmentType: 4
+    _damage:
+      _item: 0.9
+      _environment: 17
+  - _interactionCouple:
+      _itemType: 2
+      _environmentType: 5
+    _damage:
+      _item: 0.9
+      _environment: 15
