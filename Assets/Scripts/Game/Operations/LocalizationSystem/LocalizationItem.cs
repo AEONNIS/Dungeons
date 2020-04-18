@@ -7,6 +7,7 @@ namespace Game.Operations.LocalizationSystem
     public class LocalizationItem
     {
         [SerializeField] private string _key;
+        [TextArea(1, 10)]
         [SerializeField] private string _value;
 
         public string Key => _key;

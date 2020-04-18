@@ -6,16 +6,24 @@ namespace Game.Operations.LocalizationSystem
 {
     public class Localizer : MonoBehaviour
     {
-        [SerializeField] private string _basePath = "Languages";
+        [SerializeField] private string _directory = "Languages";
         [SerializeField] private string _fileExtention = "json";
-        [SerializeField] private List<string> _localizations;
-        [SerializeField] private string _missingTextMessage = "Localized text not found ";
+        [SerializeField] private string _missingTextMessage = "Localized text not found";
 
-        private Dictionary<string, string> _localizedText;
+        private List<LocalizationData> _localizations = new List<LocalizationData>();
+        private LocalizationData _currentLocalization;
+
+        #region Unity
+        private void Awake()
+        {
+            LoadLocalizations();
+            _currentLocalization = _localizations[0];
+        }
+        #endregion
 
         public void LoadLocalizedText(string localizationName)
         {
-            string filePath = Path.Combine(Application.streamingAssetsPath, _basePath, $"{localizationName}.{_fileExtention}");
+            string filePath = Path.Combine(Application.streamingAssetsPath, _directory, $"{localizationName}.{_fileExtention}");
             _localizedText = new Dictionary<string, string>();
 
             if (File.Exists(filePath))
@@ -35,6 +43,19 @@ namespace Game.Operations.LocalizationSystem
                 return _localizedText[key];
             else
                 return _missingTextMessage;
+        }
+
+        private void LoadLocalizations()
+        {
+            string[] fileNames = Directory.GetFiles(Path.Combine(Application.streamingAssetsPath, _directory), $"*.{_fileExtention}");
+
+            foreach (var fileName in fileNames)
+                _localizations.Add(ReadLocalization(fileName));
+        }
+
+        private LocalizationData ReadLocalization(string fileName)
+        {
+            return JsonUtility.FromJson<LocalizationData>(File.ReadAllText(fileName));
         }
     }
 }

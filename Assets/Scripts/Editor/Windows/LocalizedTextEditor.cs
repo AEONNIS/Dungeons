@@ -7,61 +7,71 @@ namespace Editor.Windows
 {
     public class LocalizedTextEditor : EditorWindow
     {
-        [SerializeField] private LocalizationData _data;
+        private const string _menuItemName = "Window/Localized Text Editor";
+
+        private static readonly string _windowTitle = "Localized Text Editor";
+
+        private readonly string _saveButton = "Save localization";
+        private readonly string _loadButton = "Load localization";
+        private readonly string _createButton = "Create new localization";
+        private readonly string _selectTitle = "Select localization file";
+        private readonly string _saveTitle = "Save localization file";
         private readonly string _directory = "Languages";
+        private readonly string _defaultLanguage = "ru_RU";
         private readonly string _fileExtention = "json";
 
-        [MenuItem("Window/Localized Text Editor")]
+        [SerializeField] private LocalizationData _localization;
+
+        private Vector2 _scrollPosition;
+
+        [MenuItem(_menuItemName)]
         private static void Init()
         {
-            GetWindow<LocalizedTextEditor>("Localized Text Editor").Show();
+            GetWindow<LocalizedTextEditor>(_windowTitle).Show();
         }
 
         private void OnGUI()
         {
-            if (_data != null)
+            if (_localization != null)
             {
-                SerializedObject serializedObject = new SerializedObject(this);
-                SerializedProperty serializedProperty = serializedObject.FindProperty("_data");
-                EditorGUILayout.PropertyField(serializedProperty, true);
-                serializedObject.ApplyModifiedProperties();
+                SerializedObject window = new SerializedObject(this);
+                SerializedProperty localization = window.FindProperty(nameof(_localization));
 
-                if (GUILayout.Button("Save data"))
-                    SaveGameData();
+                _scrollPosition = EditorGUILayout.BeginScrollView(_scrollPosition);
+                EditorGUILayout.PropertyField(localization, true);
+                window.ApplyModifiedProperties();
+                EditorGUILayout.EndScrollView();
+
+                if (GUILayout.Button(_saveButton))
+                    SaveLocalization(_localization.LanguageDesignation);
             }
 
-            if (GUILayout.Button("Load data"))
-                LoadGameData();
+            if (GUILayout.Button(_loadButton))
+                LoadLocalization();
 
-            if (GUILayout.Button("Create new data"))
-                CreateNewData();
+            if (GUILayout.Button(_createButton))
+                CreateNewLocalization(_defaultLanguage);
         }
 
-        private void LoadGameData()
+        private void LoadLocalization()
         {
-            string filePath = EditorUtility.OpenFilePanel("Select localization data file", Path.Combine(Application.streamingAssetsPath, _directory), _fileExtention);
+            string filePath = EditorUtility.OpenFilePanel(_selectTitle, Path.Combine(Application.streamingAssetsPath, _directory), _fileExtention);
 
             if (string.IsNullOrEmpty(filePath) == false)
-            {
-                string dataAsJson = File.ReadAllText(filePath);
-                _data = JsonUtility.FromJson<LocalizationData>(dataAsJson);
-            }
+                _localization = JsonUtility.FromJson<LocalizationData>(File.ReadAllText(filePath));
         }
 
-        private void SaveGameData()
+        private void SaveLocalization(string defaultName)
         {
-            string filePath = EditorUtility.SaveFilePanel("Save localization data file", Path.Combine(Application.streamingAssetsPath, _directory), "", _fileExtention);
+            string filePath = EditorUtility.SaveFilePanel(_saveTitle, Path.Combine(Application.streamingAssetsPath, _directory), defaultName, _fileExtention);
 
             if (string.IsNullOrEmpty(filePath) == false)
-            {
-                string dataAsJson = JsonUtility.ToJson(_data);
-                File.WriteAllText(filePath, dataAsJson);
-            }
+                File.WriteAllText(filePath, JsonUtility.ToJson(_localization, true));
         }
 
-        private void CreateNewData()
+        private void CreateNewLocalization(string languageDesignation)
         {
-            _data = new LocalizationData();
+            _localization = new LocalizationData(languageDesignation);
         }
     }
 }
