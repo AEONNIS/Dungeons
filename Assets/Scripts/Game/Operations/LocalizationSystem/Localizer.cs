@@ -8,39 +8,29 @@ namespace Game.Operations.LocalizationSystem
     {
         [SerializeField] private string _directory = "Languages";
         [SerializeField] private string _fileExtention = "json";
+        [TextArea(1, 2)]
         [SerializeField] private string _missingTextMessage = "Localized text not found";
 
         private List<LocalizationData> _localizations = new List<LocalizationData>();
-        private LocalizationData _currentLocalization;
+        private Dictionary<string, string> _currentLocalization;
 
         #region Unity
         private void Awake()
         {
             LoadLocalizations();
-            _currentLocalization = _localizations[0];
+            SetCurrentLocalization(_localizations[0].LanguageDesignation);
         }
         #endregion
 
-        public void LoadLocalizedText(string localizationName)
+        public void SetCurrentLocalization(string languageDesignation)
         {
-            string filePath = Path.Combine(Application.streamingAssetsPath, _directory, $"{localizationName}.{_fileExtention}");
-            _localizedText = new Dictionary<string, string>();
-
-            if (File.Exists(filePath))
-            {
-                LocalizationData loadedData = JsonUtility.FromJson<LocalizationData>(File.ReadAllText(filePath));
-                loadedData.Items.ForEach(item => _localizedText.Add(item.Key, item.Value));
-            }
-            else
-            {
-
-            }
+            _currentLocalization = _localizations.Find(localization => localization.LanguageDesignation == languageDesignation).ConvertToDictionary();
         }
 
-        public string GetLocalizedValue(string key)
+        public string GetLocalizedText(string key)
         {
-            if (_localizedText.ContainsKey(key))
-                return _localizedText[key];
+            if (_currentLocalization.ContainsKey(key))
+                return _currentLocalization[key];
             else
                 return _missingTextMessage;
         }

@@ -18,5 +18,12 @@ namespace Game.Operations.LocalizationSystem
 
         public string LanguageDesignation => _languageDesignation;
         public List<LocalizationItem> Items => _items;
+
+        public Dictionary<string, string> ConvertToDictionary()
+        {
+            Dictionary<string, string> dictionary = new Dictionary<string, string>(_items.Capacity);
+            _items.ForEach(item => dictionary.Add(item.Key, item.Value));
+            return dictionary;
+        }
     }
 }
