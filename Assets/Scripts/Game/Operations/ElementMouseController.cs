@@ -1,7 +1,6 @@
 ﻿using Game.Model;
 using Game.Model.PlayerCharacter;
 using Game.Presentation;
-using Game.Presentation.UI;
 using Game.Presentation.UI.NotificationSystem;
 using UnityEngine;
 

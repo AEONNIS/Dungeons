@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game.Presentation.UI
+namespace Game.Presentation
 {
     public class InfoPanel : MonoBehaviour
     {

@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
 namespace Game.Operations.LocalizationSystem
 {
-    public class Localizer : MonoBehaviour
+    [CreateAssetMenu(fileName = "Localizer", menuName = "Game/Operations/LocalizationSystem")]
+    public class Localizer : ScriptableObject
     {
         [SerializeField] private string _directory = "Languages";
         [SerializeField] private string _fileExtention = "json";
@@ -12,22 +14,23 @@ namespace Game.Operations.LocalizationSystem
         [SerializeField] private string _missingTextMessage = "Localized text not found";
 
         private List<LocalizationData> _localizations = new List<LocalizationData>();
-        private Dictionary<string, string> _currentLocalization;
+        private Dictionary<LocalizationTextID, string> _currentLocalization;
 
-        #region Unity
-        private void Awake()
+        public event Action LanguageChanged;
+
+        public void Init()
         {
             LoadLocalizations();
             SetCurrentLocalization(_localizations[0].LanguageDesignation);
         }
-        #endregion
 
         public void SetCurrentLocalization(string languageDesignation)
         {
             _currentLocalization = _localizations.Find(localization => localization.LanguageDesignation == languageDesignation).ConvertToDictionary();
+            LanguageChanged?.Invoke();
         }
 
-        public string GetLocalizedText(string key)
+        public string GetLocalizedText(LocalizationTextID key)
         {
             if (_currentLocalization.ContainsKey(key))
                 return _currentLocalization[key];

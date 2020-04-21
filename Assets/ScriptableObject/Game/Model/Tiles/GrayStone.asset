@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be001f00b4f58454596d131d84fdc853, type: 3}
+  m_Name: GrayStone
+  m_EditorClassIdentifier: 
+  _localizer: {fileID: 11400000, guid: 65ee4970d9b241c4b8d40bc2256770a6, type: 2}
+  _type: 1
+  _nameKey: 2001
+  _descriptionKey: 3001
+  _strengthStates:
+  - _strengthRange:
+      _maxValue: 100
+      _minValue: 85
+    _name: NoVisibleDamage
+    _sprite: {fileID: 21300006, guid: 4a7bfbd06638d8e4c9973be5721e51b3, type: 3}
+    _bodyType: 2
+    _layer: 8
+  - _strengthRange:
+      _maxValue: 85
+      _minValue: 35
+    _name: DamageStatic
+    _sprite: {fileID: 21300040, guid: 4a7bfbd06638d8e4c9973be5721e51b3, type: 3}
+    _bodyType: 2
+    _layer: 8
+  - _strengthRange:
+      _maxValue: 35
+      _minValue: 0
+    _name: DamageDinamic
+    _sprite: {fileID: 21300040, guid: 4a7bfbd06638d8e4c9973be5721e51b3, type: 3}
+    _bodyType: 0
+    _layer: 8
+  - _strengthRange:
+      _maxValue: 0
+      _minValue: -1
+    _name: Destroyed
+    _sprite: {fileID: 21300048, guid: 4a7bfbd06638d8e4c9973be5721e51b3, type: 3}
+    _bodyType: 0
+    _layer: 11
+  _shutdownTimeWhenDestroyed: 5

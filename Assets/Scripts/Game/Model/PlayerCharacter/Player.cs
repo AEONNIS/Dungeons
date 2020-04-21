@@ -3,7 +3,7 @@ using Game.Infrastructure;
 using Game.Model.InventorySystem;
 using Game.Model.Items;
 using Game.Presentation.PlayerCharacter;
-using Game.Presentation.UI;
+using Game.Presentation;
 using UnityEngine;
 
 namespace Game.Model.PlayerCharacter
@@ -34,7 +34,6 @@ namespace Game.Model.PlayerCharacter
         {
             _states.SetDefault();
             _animator.SetStates(_states);
-            _playerPanel.Present(_health, _states.PowerState);
         }
 
         private void OnEnable()
@@ -49,6 +48,11 @@ namespace Game.Model.PlayerCharacter
             _mover.PlayerHasLanded -= OnPlayerHasLanded;
         }
         #endregion
+
+        public void Init()
+        {
+            _playerPanel.Present(_health, _states.PowerState);
+        }
 
         public void SwitchPowerState()
         {

@@ -14,6 +14,7 @@ namespace Editor.Windows
         private readonly string _saveButton = "Save localization";
         private readonly string _loadButton = "Load localization";
         private readonly string _createButton = "Create new localization";
+        private readonly string _addButton = "+";
         private readonly string _selectTitle = "Select localization file";
         private readonly string _saveTitle = "Save localization file";
         private readonly string _directory = "Languages";
@@ -41,6 +42,9 @@ namespace Editor.Windows
                 EditorGUILayout.PropertyField(localization, true);
                 window.ApplyModifiedProperties();
                 EditorGUILayout.EndScrollView();
+
+                if (GUILayout.Button(_addButton))
+                    _localization.AddItemToList();
 
                 if (GUILayout.Button(_saveButton))
                     SaveLocalization(_localization.LanguageDesignation);

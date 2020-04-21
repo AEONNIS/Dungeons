@@ -6,11 +6,11 @@ namespace Game.Operations.LocalizationSystem
     [Serializable]
     public class LocalizationItem
     {
-        [SerializeField] private string _key;
+        [SerializeField] private LocalizationTextID _key;
         [TextArea(1, 10)]
         [SerializeField] private string _value;
 
-        public string Key => _key;
+        public LocalizationTextID Key => _key;
         public string Value => _value;
     }
 }
