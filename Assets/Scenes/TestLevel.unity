@@ -939,8 +939,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 217911520}
-  - component: {fileID: 217911524}
   - component: {fileID: 217911523}
+  - component: {fileID: 217911524}
   - component: {fileID: 217911522}
   - component: {fileID: 217911521}
   m_Layer: 5
@@ -2269,7 +2269,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 426975871}
   m_HandleRect: {fileID: 426975870}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3473,6 +3473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _localizer: {fileID: 11400000, guid: 65ee4970d9b241c4b8d40bc2256770a6, type: 2}
   _player: {fileID: 702143158}
+  _interaction: {fileID: 11400000, guid: 81f92ad79264dd84e9a2869f629c909e, type: 2}
 --- !u!4 &825413655
 Transform:
   m_ObjectHideFlags: 0
@@ -4090,7 +4091,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1109845406}
-  - component: {fileID: 1109845407}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -4114,20 +4114,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1109845407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109845405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e6a2edf4ba104d488c17f56090ecd51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _player: {fileID: 702143158}
-  _interaction: {fileID: 11400000, guid: 81f92ad79264dd84e9a2869f629c909e, type: 2}
 --- !u!1 &1162579364
 GameObject:
   m_ObjectHideFlags: 0
@@ -4670,7 +4656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _handsSlot: {fileID: 1548389235}
   _presenter: {fileID: 1340597254}
-  _notification: {fileID: 1340597253}
+  _notifier: {fileID: 1340597253}
   _itemDetector: {fileID: 3063806134454483251}
   _player: {fileID: 702143158}
 --- !u!114 &1340597251
@@ -5126,8 +5112,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1548389230}
   - component: {fileID: 1548389236}
-  - component: {fileID: 1548389235}
   - component: {fileID: 1548389234}
+  - component: {fileID: 1548389235}
   - component: {fileID: 1548389233}
   - component: {fileID: 1548389232}
   - component: {fileID: 1548389231}
@@ -5232,7 +5218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _image: {fileID: 1548389232}
-  _basis: {fileID: 11400000, guid: e6fbae4668b326847b324ef7f86bf0b8, type: 2}
+  _data: {fileID: 11400000, guid: e6fbae4668b326847b324ef7f86bf0b8, type: 2}
 --- !u!114 &1548389235
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,8 +1,8 @@
-﻿using Attributes;
+﻿using Dungeons.Attributes;
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor.PropertyDrawers
+namespace Dungeons.Editor.PropertyDrawers
 {
     [CustomPropertyDrawer(typeof(LayerAttribute))]
     public class LayerAttributeDrawer : PropertyDrawer

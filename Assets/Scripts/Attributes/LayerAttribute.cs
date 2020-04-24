@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Attributes
+namespace Dungeons.Attributes
 {
     [AttributeUsage(AttributeTargets.Field)]
     public class LayerAttribute : PropertyAttribute { }

@@ -1,9 +1,9 @@
-﻿using Game.Operations.LocalizationSystem;
+﻿using Dungeons.Model.LocalizationSystem;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor.Windows
+namespace Dungeons.Editor.Windows
 {
     public class LocalizedTextEditor : EditorWindow
     {
