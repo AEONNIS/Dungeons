@@ -2269,7 +2269,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 426975871}
   m_HandleRect: {fileID: 426975870}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4224,7 +4224,11 @@ MonoBehaviour:
   _localizer: {fileID: 11400000, guid: 65ee4970d9b241c4b8d40bc2256770a6, type: 2}
   _healthBar: {fileID: 723583783}
   _powerState: {fileID: 1781794836}
-  _powerStateNameKeys: 204e0000214e0000224e0000
+  _powerStateNames:
+    _item:
+    - _key: 20000
+    - _key: 20001
+    - _key: 20002
 --- !u!222 &1162579369
 CanvasRenderer:
   m_ObjectHideFlags: 0

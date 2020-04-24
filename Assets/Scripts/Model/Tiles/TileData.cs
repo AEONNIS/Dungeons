@@ -10,17 +10,14 @@ namespace Dungeons.Model.Tiles
     {
         [SerializeField] private Localizer _localizer;
         [SerializeField] private TileType _type;
-        [SerializeField] private LocalizationTextID _nameKey;
-        [SerializeField] private LocalizationTextID _descriptionKey;
+        [SerializeField] private CachedItem _name;
+        [SerializeField] private CachedItem _description;
         [SerializeField] private List<TileStrengthState> _strengthStates;
         [SerializeField] private float _shutdownTimeWhenDestroyed = 5.0f;
 
-        private string _name;
-        private string _description;
-
         public TileType Type => _type;
-        public string Name => _name;
-        public string Description => _description;
+        public string Name => _name.Value;
+        public string Description => _description.Value;
         public float ShutdownTimeWhenDestroyed => _shutdownTimeWhenDestroyed;
 
         #region Unity
@@ -42,8 +39,8 @@ namespace Dungeons.Model.Tiles
 
         private void OnLanguageChanged()
         {
-            _name = _localizer.GetLocalizedText(_nameKey);
-            _description = _localizer.GetLocalizedText(_descriptionKey);
+            _name.ToCache(_localizer);
+            _description.ToCache(_localizer);
         }
     }
 

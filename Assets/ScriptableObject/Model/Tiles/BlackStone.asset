@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _localizer: {fileID: 11400000, guid: 65ee4970d9b241c4b8d40bc2256770a6, type: 2}
   _type: 0
-  _nameKey: 2000
-  _descriptionKey: 3000
+  _name:
+    _key: 2000
+  _description:
+    _key: 3000
   _strengthStates: []
   _shutdownTimeWhenDestroyed: 0

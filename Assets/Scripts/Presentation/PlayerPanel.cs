@@ -1,7 +1,6 @@
 ﻿using Dungeons.Infrastructure.Presentation;
 using Dungeons.Model.LocalizationSystem;
 using Dungeons.Model.PlayerCharacter;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,9 +11,7 @@ namespace Dungeons.Presentation
         [SerializeField] private Localizer _localizer;
         [SerializeField] private ImageValueBar _healthBar;
         [SerializeField] private Text _powerState;
-        [SerializeField] private List<LocalizationTextID> _powerStateNameKeys;
-
-        private List<string> _powerStateNames;
+        [SerializeField] private CachedData _powerStateNames;
 
         #region Unity
         private void OnEnable()
@@ -41,13 +38,12 @@ namespace Dungeons.Presentation
 
         public void PresentPowerState(PowerState powerState)
         {
-            _powerState.text = _powerStateNames[(int)powerState];
+            _powerState.text = _powerStateNames.GetValue((int)powerState);
         }
 
         private void OnLanguageChanged()
         {
-            _powerStateNames = new List<string>(_powerStateNameKeys.Count);
-            _powerStateNameKeys.ForEach(nameKey => _powerStateNames.Add(_localizer.GetLocalizedText(nameKey)));
+            _powerStateNames.ToCache(_localizer);
         }
     }
 }
