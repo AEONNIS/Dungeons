@@ -18,7 +18,7 @@ namespace Dungeons.Editor.Windows
         private readonly string _selectTitle = "Select localization file";
         private readonly string _saveTitle = "Save localization file";
         private readonly string _directory = "Languages";
-        private readonly string _defaultLanguage = "ru_RU";
+        private readonly string _defaultLanguage = "ru-RU";
         private readonly string _fileExtention = "json";
 
         [SerializeField] private LocalizationData _localization;

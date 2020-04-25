@@ -13,7 +13,7 @@ namespace Dungeons.Model.LocalizationSystem
         [TextArea(1, 2)]
         [SerializeField] private string _missingTextMessage = "Localized text not found";
 
-        private List<LocalizationData> _localizations = new List<LocalizationData>();
+        private readonly List<LocalizationData> _localizations = new List<LocalizationData>();
         private Dictionary<LocalizationTextID, string> _currentLocalization;
 
         public event Action LanguageChanged;
