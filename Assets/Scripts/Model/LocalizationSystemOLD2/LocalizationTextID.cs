@@ -1,4 +1,4 @@
-﻿namespace Dungeons.Model.LocalizationSystem
+﻿namespace Dungeons.Model.LocalizationSystemOLD2
 {
     public enum LocalizationTextID
     {

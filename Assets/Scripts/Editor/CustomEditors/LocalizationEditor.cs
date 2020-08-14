@@ -1,4 +1,4 @@
-﻿using Dungeons.Model.LocalizationSystemNEW;
+﻿using Dungeons.Model.LocalizationSystemOLD1;
 using UnityEditor;
 using UnityEngine;
 

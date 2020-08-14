@@ -9,22 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e42b60d161596b14ab98d0dec156cc49, type: 3}
+  m_Script: {fileID: 11500000, guid: 68032ed7578b4174d9354d2033666a5f, type: 3}
   m_Name: Localizer
   m_EditorClassIdentifier: 
-  _items:
-  - _id: 1234567890
-    _tags: 
-    _value: 
-  - _id: 1234567890
-    _tags: 
-    _value: 
-  - _id: 1234567890
-    _tags: 
-    _value: 
-  - _id: 1234567890
-    _tags: 
-    _value: 
-  - _id: 1234567890
-    _tags: 
-    _value: 
+  _directory: Languages
+  _fileExtention: json
+  _missingTextMessage: Localized text not found

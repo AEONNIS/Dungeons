@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Dungeons.Model.LocalizationSystem
+namespace Dungeons.Model.LocalizationSystemOLD2
 {
     [Serializable]
     public class CachedData
@@ -11,9 +11,6 @@ namespace Dungeons.Model.LocalizationSystem
 
         public string GetValue(int index) => _item[index].Value;
 
-        public void ToCache(Localizer localizer)
-        {
-            _item.ForEach(item => item.ToCache(localizer));
-        }
+        public void ToCache(Localizer localizer) => _item.ForEach(item => item.ToCache(localizer));
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dungeons.Model.LocalizationSystemNEW
+namespace Dungeons.Model.LocalizationSystemOLD1
 {
     [Serializable]
     public class Data

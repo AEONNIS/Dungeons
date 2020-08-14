@@ -1,5 +1,5 @@
 ﻿using Dungeons.Model.InteractionSystem;
-using Dungeons.Model.LocalizationSystem;
+using Dungeons.Model.LocalizationSystemOLD2;
 using Dungeons.Model.PlayerCharacter;
 using UnityEngine;
 

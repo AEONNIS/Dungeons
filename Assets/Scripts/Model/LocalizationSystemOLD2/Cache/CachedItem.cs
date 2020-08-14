@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Dungeons.Model.LocalizationSystem
+namespace Dungeons.Model.LocalizationSystemOLD2
 {
     [Serializable]
     public class CachedItem
@@ -12,9 +12,6 @@ namespace Dungeons.Model.LocalizationSystem
 
         public string Value => _value;
 
-        public void ToCache(Localizer localizer)
-        {
-            _value = localizer.GetLocalizedText(_key);
-        }
+        public void ToCache(Localizer localizer) => _value = localizer.GetLocalizedText(_key);
     }
 }

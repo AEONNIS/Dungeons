@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Dungeons.Model.LocalizationSystemNEW
+namespace Dungeons.Model.LocalizationSystemOLD2
 {
     [Serializable]
     public class LocalizationItem

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Dungeons.Model.LocalizationSystemNEW
+namespace Dungeons.Model.LocalizationSystemOLD1
 {
-    [CreateAssetMenu(fileName = "Localization", menuName = "Dungeons/Model/LocalizationSystem/Localization")]
+    [CreateAssetMenu(fileName = "Localization", menuName = "Dungeons/Model/LocalizationSystemOLD1/Localization")]
     public class Localization : ScriptableObject
     {
         [SerializeField] private string _languageDesignation;

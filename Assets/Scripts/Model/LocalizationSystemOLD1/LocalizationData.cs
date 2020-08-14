@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Dungeons.Model.LocalizationSystemNEW
+namespace Dungeons.Model.LocalizationSystemOLD1
 {
     [Serializable]
     public class LocalizationData : Data
