@@ -3,7 +3,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace Dungeons.Editor.Windows
+namespace Dungeons.Editors.Windows
 {
     public class LocalizedTextEditor : EditorWindow
     {

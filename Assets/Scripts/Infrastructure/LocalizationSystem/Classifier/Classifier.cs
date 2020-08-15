@@ -5,9 +5,8 @@ using UnityEngine;
 namespace Dungeons.Infrastructure.LocalizationSystem
 {
     [Serializable]
-    public class Localization
+    public class Classifier
     {
-        [SerializeField] private string _language;
-        [SerializeField] private List<Item> _items;
+        [SerializeField] private List<ClassifierItem> _items = new List<ClassifierItem>();
     }
 }

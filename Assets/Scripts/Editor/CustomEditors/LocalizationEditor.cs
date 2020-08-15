@@ -1,11 +1,10 @@
 ﻿using Dungeons.Model.LocalizationSystemOLD1;
 using UnityEditor;
-using UnityEngine;
 
-namespace Dungeons.Editor.CustomEditors
+namespace Dungeons.Editors.CustomEditors
 {
     [CustomEditor(typeof(Localization))]
-    public class LocalizationEditor : UnityEditor.Editor
+    public class LocalizationEditor : Editor
     {
         private Localization _localization;
 

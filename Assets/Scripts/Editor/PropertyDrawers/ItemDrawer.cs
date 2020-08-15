@@ -2,9 +2,9 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Dungeons.Editor.PropertyDrawers
+namespace Dungeons.Editors.PropertyDrawers
 {
-    [CustomPropertyDrawer(typeof(Item))]
+    [CustomPropertyDrawer(typeof(LocalizationDataItem))]
     public partial class ItemDrawer : PropertyDrawer
     {
         private const string _idLabel = "ID";

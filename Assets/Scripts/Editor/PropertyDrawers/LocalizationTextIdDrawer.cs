@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Dungeons.Editor.PropertyDrawers
+namespace Dungeons.Editors.PropertyDrawers
 {
     [CustomPropertyDrawer(typeof(LocalizationTextID))]
     public class LocalizationTextIdDrawer : PropertyDrawer
