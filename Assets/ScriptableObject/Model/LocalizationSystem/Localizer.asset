@@ -12,19 +12,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42b60d161596b14ab98d0dec156cc49, type: 3}
   m_Name: Localizer
   m_EditorClassIdentifier: 
-  _items:
-  - _id: 1234567890
-    _tags: 
-    _value: 
-  - _id: 1234567890
-    _tags: 
-    _value: 
-  - _id: 1234567890
-    _tags: 
-    _value: 
-  - _id: 1234567890
-    _tags: 
-    _value: 
-  - _id: 1234567890
-    _tags: 
-    _value: 
+  _currentLocalization: 0
+  _localizations:
+  - _language: rus
+    _items:
+    - _id: 1234567890
+      _namespaces: 0
+      _text: 
+    - _id: 1234567890
+      _namespaces: 0
+      _text: 
+    - _id: 1234567890
+      _namespaces: 0
+      _text: 
+    - _id: 1234567890
+      _namespaces: 0
+      _text: 
+    - _id: 1234567890
+      _namespaces: 0
+      _text: 
+  - _language: eng
+    _items:
+    - _id: 1234567890
+      _namespaces: 0
+      _text: 
+    - _id: 1234567890
+      _namespaces: 0
+      _text: 
+    - _id: 1234567890
+      _namespaces: 0
+      _text: 
+    - _id: 1234567890
+      _namespaces: 0
+      _text: 
+    - _id: 1234567890
+      _namespaces: 0
+      _text: 

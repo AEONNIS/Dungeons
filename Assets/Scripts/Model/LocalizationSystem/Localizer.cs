@@ -6,6 +6,7 @@ namespace Dungeons.Infrastructure.LocalizationSystem
     [CreateAssetMenu(fileName = "Localizer", menuName = "Dungeons/Infrastructure/LocalizationSystem/Localizer")]
     public class Localizer : ScriptableObject
     {
-        [SerializeField] private List<Item> _items;
+        [SerializeField] private int _currentLocalization;
+        [SerializeField] private List<Localization> _localizations;
     }
 }

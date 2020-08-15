@@ -3,7 +3,7 @@
 namespace Dungeons.Infrastructure.LocalizationSystem
 {
     [Flags]
-    public enum Tag
+    public enum NamespaceTag
     {
         Model = 1,
         Items = 2,

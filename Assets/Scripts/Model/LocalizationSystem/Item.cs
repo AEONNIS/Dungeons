@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Dungeons.Infrastructure.LocalizationSystem
@@ -7,9 +8,20 @@ namespace Dungeons.Infrastructure.LocalizationSystem
     public class Item
     {
         [SerializeField] private int _id;
-        [SerializeField] private Tag _tags;
-        [SerializeField] private string _value;
+        [SerializeField] private NamespaceTag _namespaces;
+        [SerializeField] private string _text;
+    }
 
-        public int ID { get { return _id; } set { _id = value; } }
+    [Serializable]
+    public class ClassifierItem
+    {
+        [SerializeField] private int _id;
+        [SerializeField] private NamespaceTag _tag;
+    }
+
+    [Serializable]
+    public class Classifier
+    {
+        [SerializeField] private List<ClassifierItem> _items;
     }
 }
