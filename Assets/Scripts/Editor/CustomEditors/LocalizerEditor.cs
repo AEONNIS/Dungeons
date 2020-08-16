@@ -10,11 +10,7 @@ namespace DungeonsEditor.CustomEditors
         private Localizer _localizer;
 
         #region Unity
-        private void OnEnable()
-        {
-            _localizer = target as Localizer;
-            _localizer.Init();
-        }
+        private void OnEnable() => _localizer = target as Localizer;
 
         public override void OnInspectorGUI()
         {

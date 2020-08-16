@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.IO;
 using UnityEngine;
 
@@ -11,6 +12,10 @@ namespace Dungeons.Infrastructure.LocalizationSystem
 
         private Classifier _classifer = null;
 
+        #region Unity
+        private void OnEnable() => Init();
+        #endregion
+
         public void Init()
         {
             _classifer = LoadClassifier();
@@ -20,20 +25,27 @@ namespace Dungeons.Infrastructure.LocalizationSystem
         {
             if (File.Exists(_settings.ClassifierFullPath))
             {
-                Debug.Log("Classifier file loaded");
-                return null;
+                Debug.Log("Classifier file exists....");
+                return LoadClassifierFromJson();
             }
             else
             {
                 Debug.Log("Classifier file not exists");
-
-                return new Classifier();
+                Classifier classifier = new Classifier();
+                SaveClassifierAsJson(classifier);
+                return classifier;
             }
         }
 
         private void SaveClassifierAsJson(Classifier classifier)
         {
-            //File.WriteAllText(_settings.ClassifierFullPath, JsonConvert);
+            File.WriteAllText(_settings.ClassifierFullPath, JsonConvert.SerializeObject(classifier, Formatting.Indented));
+            Debug.Log("Classifier Save as Json");
+        }
+
+        private Classifier LoadClassifierFromJson()
+        {
+            return JsonConvert.DeserializeObject<Classifier>(File.ReadAllText(_settings.ClassifierFullPath));
         }
 
         [Serializable]
