@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 
 namespace Dungeons.Infrastructure.LocalizationSystem
 {
-    [Flags]
+    [Flags, JsonConverter(typeof(StringEnumConverter))]
     public enum NamespaceTag
     {
         Model = 1,
