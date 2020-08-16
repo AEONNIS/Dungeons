@@ -17,7 +17,7 @@ namespace Dungeons.Infrastructure.LocalizationSystem
         public Settings GetSettings => _settings;
 
         #region Unity
-        private void OnEnable() => Init();
+        //private void OnEnable() => Init();
         #endregion
 
         public void Init()
