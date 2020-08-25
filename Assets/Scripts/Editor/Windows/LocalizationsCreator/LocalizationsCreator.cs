@@ -1,6 +1,5 @@
-﻿using Dungeons.Infrastructure.LocalizationSystem;
-using Newtonsoft.Json;
-using System.IO;
+﻿using Dungeons.Infrastructure;
+using Dungeons.Infrastructure.LocalizationSystem;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,54 +8,60 @@ namespace DungeonsEditor.Windows
     public partial class LocalizationsCreator : EditorWindow
     {
         [SerializeField] private Settings _settings = new Settings();
-        [SerializeField] private Classifier _classifier;
+        [SerializeField] private Localization _localization;
 
-        [MenuItem(UISettings.MenuItem)]
-        private static void Init() => GetWindow<LocalizationsCreator>(UISettings.WindowTitle).Show();
+        private Classifier _classifier = null;
+
+        [MenuItem("Window/Localizations Creator")]
+        private static void Init() => GetWindow<LocalizationsCreator>("Localizations Creator").Show();
 
         #region Unity
+        private void Awake() => _classifier = JsonConverter.LoadFromJson<Classifier>(_settings.ClassifierFullPath);
+
         private void OnGUI()
         {
-            DrawSettings();
+            SerializedObject window = new SerializedObject(this);
+            DrawSettings(window);
             EditorGUILayout.Space(20);
+            DrawClassifierButtons();
 
-            if (GUILayout.Button(UISettings.CreateClassifierButton))
-                CreateClassifier();
-
-            if (GUILayout.Button(UISettings.LoadClassifierButton))
-                LoadClassifier();
+            if (_classifier != null)
+            {
+                DrawLocalizationButtons();
+            }
         }
         #endregion
 
-        private void DrawSettings()
+        private void DrawSettings(SerializedObject window)
         {
-            SerializedObject window = new SerializedObject(this);
             SerializedProperty settings = window.FindProperty(nameof(_settings));
             EditorGUILayout.PropertyField(settings);
-
-            { //DBG
-                SerializedProperty classifier = window.FindProperty(nameof(_classifier));
-                EditorGUILayout.PropertyField(classifier);
-            }
-
             window.ApplyModifiedProperties();
         }
 
-        private void CreateClassifier()
+        private void DrawClassifierButtons()
         {
-            _classifier = new Classifier();
-            string classifierPath = EditorUtility.SaveFilePanel(UISettings.SaveClassifierAsJsonTitle, _settings.DirectoryPath, _settings.ClassifierName, _settings.FileExtention);
+            if (GUILayout.Button("Create New Classifier"))
+                _classifier = Utility.CreateUsingFilePanel(new Classifier(), "Save Classifier as JSON", _settings.DirectoryPath, _settings.ClassifierName, _settings.FileExtention);
 
-            if (string.IsNullOrEmpty(classifierPath) == false)
-                File.WriteAllText(classifierPath, JsonConvert.SerializeObject(_classifier, Formatting.Indented));
+            if (GUILayout.Button("Open JSON Classifier"))
+                _classifier = Utility.OpenUsingFilePanel<Classifier>("Open JSON Classifier", _settings.DirectoryPath, _settings.FileExtention);
         }
 
-        private void LoadClassifier()
+        private void DrawLocalizationButtons()
         {
-            string classifierPath = EditorUtility.OpenFilePanel(UISettings.LoadJsonClassifierTitle, _settings.DirectoryPath, _settings.FileExtention);
+            if (GUILayout.Button("Create New Localization"))
+                _localization = Utility.CreateUsingFilePanel(new Localization(), "Save Localization as JSON", _settings.DirectoryPath, _settings.LocalizationName, _settings.FileExtention);
 
-            if (string.IsNullOrEmpty(classifierPath) == false)
-                _classifier = JsonConvert.DeserializeObject<Classifier>(File.ReadAllText(classifierPath));
+            if (GUILayout.Button("Open JSON Localization"))
+                _localization = Utility.OpenUsingFilePanel<Localization>("Open JSON Localization", _settings.DirectoryPath, _settings.FileExtention);
+        }
+
+        private void DrawLocalization(SerializedObject window)
+        {
+            SerializedProperty localization = window.FindProperty(nameof(_localization));
+            EditorGUILayout.PropertyField(localization);
+            window.ApplyModifiedProperties();
         }
     }
 }

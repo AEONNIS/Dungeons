@@ -12,7 +12,7 @@ namespace DungeonsEditor.Windows
             [SerializeField] private string _directoryName = "Localizations";
             [SerializeField] private string _fileExtension = "json";
             [SerializeField] private string _classifierName = "Classifier";
-            [SerializeField] private string _localizationDefaultName = "Localization";
+            [SerializeField] private string _localizationName = "Localization";
 
             private readonly string _directoryPath;
             private readonly string _classifierFullPath;
@@ -27,7 +27,7 @@ namespace DungeonsEditor.Windows
             public string FileExtention => _fileExtension;
             public string ClassifierName => _classifierName;
             public string ClassifierFullPath => _classifierFullPath;
-            public string LocalizationDefaultName => _localizationDefaultName;
+            public string LocalizationName => _localizationName;
         }
     }
 }
