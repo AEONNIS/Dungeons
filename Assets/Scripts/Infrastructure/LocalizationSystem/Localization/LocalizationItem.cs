@@ -9,7 +9,7 @@ namespace Dungeons.Infrastructure.LocalizationSystem
     {
         [JsonProperty("ID")]
         [SerializeField] private int _id;
-        [SerializeField] private NamespaceTag _tag;
+        [SerializeField] private NamespaceTag _tags;
         [JsonProperty("Text")]
         [SerializeField] private string _text;
     }

@@ -10,6 +10,6 @@ namespace Dungeons.Infrastructure.LocalizationSystem
         [JsonProperty("ID")]
         [SerializeField] private int _id;
         [JsonProperty("Tag")]
-        [SerializeField] private NamespaceTag _tag;
+        [SerializeField] private NamespaceTag _tags;
     }
 }

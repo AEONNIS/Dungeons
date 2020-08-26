@@ -16,11 +16,13 @@ namespace DungeonsEditor.Windows
 
             private readonly string _directoryPath;
             private readonly string _classifierFullPath;
+            private readonly string _localizationFullPath;
 
             public Settings()
             {
                 _directoryPath = Path.Combine(Application.streamingAssetsPath, _directoryName);
                 _classifierFullPath = Path.Combine(_directoryPath, $"{_classifierName}.{_fileExtension}");
+                _localizationFullPath = Path.Combine(_directoryPath, $"{_localizationName}.{_fileExtension}");
             }
 
             public string DirectoryPath => _directoryPath;
@@ -28,6 +30,7 @@ namespace DungeonsEditor.Windows
             public string ClassifierName => _classifierName;
             public string ClassifierFullPath => _classifierFullPath;
             public string LocalizationName => _localizationName;
+            public string LocalizationFullPath => _localizationFullPath;
         }
     }
 }
