@@ -117,6 +117,7 @@ LOCALIZATION SYSTEM:
 
 LocalizationsCreator:
 {
+	*	Разделить LocalizationCreator и его отображение (LocalizationCreatorWindow).
 	*	Label у Settings не расширяется при расширении окна.
 	?+	Изменять и сохранять настройки Settings.
 	+	При создании/открытии classifier/localization оставлять прежнее значение, если отменили операцию.

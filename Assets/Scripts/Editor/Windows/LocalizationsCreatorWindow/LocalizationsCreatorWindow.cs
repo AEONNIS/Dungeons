@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace DungeonsEditor.Windows
 {
-    public partial class LocalizationsCreator : EditorWindow
+    public partial class LocalizationsCreatorWindow : EditorWindow
     {
         [SerializeField] private Settings _settings = new Settings();
         [SerializeField] private Localization _localization = null;
@@ -15,7 +15,7 @@ namespace DungeonsEditor.Windows
         private Vector2 _scrollPosition;
 
         [MenuItem("Window/Localizations Creator")]
-        private static void Init() => GetWindow<LocalizationsCreator>("Localizations Creator").Show();
+        private static void Init() => GetWindow<LocalizationsCreatorWindow>("Localizations Creator").Show();
 
         #region Unity
         private void Awake()

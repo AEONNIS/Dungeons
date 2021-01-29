@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace DungeonsEditor.Windows
 {
-    public partial class LocalizationsCreator
+    public partial class LocalizationsCreatorWindow
     {
         [Serializable]
         public class Settings
